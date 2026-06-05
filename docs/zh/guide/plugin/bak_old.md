@@ -8,7 +8,7 @@
 
 ###  SQLAdvisor部署文档
 
-> opendevops平台所用插件SQLAdvisor部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件SQLAdvisor部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 
 **简介**
@@ -44,7 +44,7 @@ sqladvisor  -u root -p 123456 -P 3306 -h 10.0.0.24 -q "select permission_id from
 
 ### sonarQube部署文档
 
-> opendevops平台所用插件SonarQube部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件SonarQube部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 [官网](https://www.sonarqube.org/)
 
@@ -60,10 +60,10 @@ sqladvisor  -u root -p 123456 -P 3306 -h 10.0.0.24 -q "select permission_id from
 - Project
 - Nginx （如果不需要通过nginx转发则不需要Nginx模块）
 
-**SonarQube服务端** 
+**SonarQube服务端**
 
 
-直接拉取仓库中的docker镜像启动服务, docker、docker-compose安装参考[初始化脚本](https://github.com/opendevops-cn/opendevops/tree/master/scripts)
+直接拉取仓库中的docker镜像启动服务, docker、docker-compose安装参考[初始化脚本](https://github.com/cortisdevops-cn/cortisdevops/tree/master/scripts)
 
 ```bash
 mkdir -p /data/sonarqube/
@@ -174,7 +174,7 @@ export PATH=$SONAR_RUNNER_HOME/bin:$PATH
 
 
 ### SOAR部署文档
-> opendevops平台所用插件SOAR部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件SOAR部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 
 **简介**
@@ -213,9 +213,9 @@ echo 'select * from film' | ./soar
 
 ``sql
 
-SELECT  
-  * 
-FROM  
+SELECT
+  *
+FROM
   film
 ``
 
@@ -240,7 +240,7 @@ FROM
 
 
 ### Inception部署文档
-> opendevops平台所用插件Inception部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件Inception部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 **1.在任何一台安装docker的主机上拉取镜像**
 
@@ -249,7 +249,7 @@ FROM
 **2.编辑inception配置文件，注意修改inception_remote四处配置项，指定一个数据库用以保存inception的备份及回滚语句**
 
 ```bash
-cat >/etc/inc.cnf <<EOF 
+cat >/etc/inc.cnf <<EOF
 [inception]
 general_log=1
 general_log_file=/var/log/inception.log
@@ -479,7 +479,7 @@ EOF
 
 ### DNS Bind部署文档
 
->opendevops平台所用组件[域名管理](https://github.com/opendevops-cn/codo-dns)Bind部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+>cortisdevops平台所用组件[域名管理](https://github.com/cortisdevops-cn/cortisdevops-dns)Bind部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 **安装配置**
 ```bash
@@ -550,7 +550,7 @@ ps -ef|grep named
 - 测试DNS服务，命令如下：
 ```bash
 ### 编辑dns解析文件 并写入你的DNS服务器地址
-vim /etc/resolv.conf 
+vim /etc/resolv.conf
 nameserver 172.16.0.111
 dig ftp.ss.com
 ```

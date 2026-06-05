@@ -1,6 +1,6 @@
 #! /bin/bash
 # install mysql57 by docker
-# By OpenDevOps  
+# By cortisdevops
 
 #设置你的MYSQL密码
 export MYSQL_PASSWORD="m9uSFL7duAVXfeAwGUSG"

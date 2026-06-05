@@ -1,7 +1,7 @@
 
 # sonarQube
 
-> opendevops平台所用插件SonarQube部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件SonarQube部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 [官网](https://www.sonarqube.org/)
 
@@ -17,10 +17,10 @@
 - Project
 - Nginx （如果不需要通过nginx转发则不需要Nginx模块）
 
-**SonarQube服务端** 
+**SonarQube服务端**
 
 
-直接拉取仓库中的docker镜像启动服务, docker、docker-compose安装参考[初始化脚本](https://github.com/opendevops-cn/opendevops/tree/master/scripts)
+直接拉取仓库中的docker镜像启动服务, docker、docker-compose安装参考[初始化脚本](https://github.com/cortisdevops-cn/cortisdevops/tree/master/scripts)
 
 ```bash
 mkdir -p /data/sonarqube/

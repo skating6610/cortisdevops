@@ -1,11 +1,11 @@
 <p align="center">
-    <a href="https://www.opendevops.cn/">
-        <img width="200" src="https://www.opendevops.cn/images/head_logo.png">
+    <a href="https://www.cortisdevops.cn/">
+        <img width="200" src="https://www.cortisdevops.cn/images/head_logo.png">
     </a>
 </p>
 
-[![opendevops/sb](https://jaywcjlove.github.io/sb/lang/english.svg)](README.md)
-[![opendevops/opendevops](https://jaywcjlove.github.io/sb/ico/gitee.svg)](http://gitee.com/opendevops)
+[![cortisdevops/sb](https://jaywcjlove.github.io/sb/lang/english.svg)](README.md)
+[![cortisdevops/cortisdevops](https://jaywcjlove.github.io/sb/ico/gitee.svg)](http://gitee.com/cortisdevops)
 [![Python3](https://img.shields.io/badge/Python-3.9-green.svg?style=plastic)](https://www.python.org/)
 [![Golang](https://img.shields.io/badge/golang-1.23-brightgreen.svg?style=plastic)](https://golang.google.cn/)
 [![Tornado](https://img.shields.io/badge/Tornado-6.0-brightgreen.svg?style=plastic)](https://www.tornadoweb.org)
@@ -19,7 +19,7 @@
 
 ### 项目介绍
 
-CODO 是一款专为企业设计的开源全球一站式运维平台，支持多混合云环境和自动化运维，为企业提供跨地域、跨云的统一管理能力。
+cortisdevops 是一款专为企业设计的开源全球一站式运维平台，支持多混合云环境和自动化运维，为企业提供跨地域、跨云的统一管理能力。
 
 ### 技术架构与优势
 
@@ -37,7 +37,7 @@ CODO 是一款专为企业设计的开源全球一站式运维平台，支持多
 
 众多功能模块我们一直在不停的调研和开发，如果你对此项目感兴趣可以加入我们的社区交流群，
 
-同时也希望你能给我们项目一个![](https://img.shields.io/github/stars/opendevops-cn/opendevops.svg)，为贡献者加油⛽️！为运维干杯🍻！
+同时也希望你能给我们项目一个![](https://img.shields.io/github/stars/cortisdevops-cn/cortisdevops.svg)，为贡献者加油⛽️！为运维干杯🍻！
 
 ----
 
@@ -57,25 +57,25 @@ CODO 是一款专为企业设计的开源全球一站式运维平台，支持多
 
 我们提供了Demo供使用者体验,可点击Try Online Demo快速进行体验。
 
-<a href="https://demo.opendevops.cn/user/login" target="api_explorer">
+<a href="https://demo.cortisdevops.cn/user/login" target="api_explorer">
   <img src="https://img.alicdn.com/tfs/TB12GX6zW6qK1RjSZFmXXX0PFXa-744-122.png" width="180" />
 </a>
 
 `PS: Demo权限正在调试中，目前Demo用户只有查看权限，且暂不开放用户列表,Demo订单日志我们暂时清空了`
 
-- 地址：https://demo.opendevops.cn/user/login
+- 地址：https://demo.cortisdevops.cn/user/login
 - 用户：demo
 - 密码：2ZbFYNv9WibWcR7GB6kcEY
 
-![](image/codo_index.png)
+![](images/cortisdevops_index.png)
 
 ### 开始使用
 
 > 当前版本支持docker compose和kubernetes helm 一键快速部署。
 
-- [Document](http://docs.opendevops.cn/)
-- [Quick Experience](https://demo.opendevops.cn/user/login)
-- [Deployment Document](https://github.com/opendevops-cn/codo-deploy-docs)
+- [Document](https://docs.cortisdevops.cn/)
+- [Quick Experience](https://demo.cortisdevops.cn/user/login)
+- [Deployment Document](https://github.com/cortisdevops-cn/cortisdevops-deploy-docs)
 
 ### 视频教程
 
@@ -87,22 +87,105 @@ CODO 是一款专为企业设计的开源全球一站式运维平台，支持多
 
 ### 模块链接
 
-> CODO 项目我们是使用模块化、微服务化，以下为各个模块地址，同时也欢迎业界感兴趣各位大佬前来贡献
+> cortisdevops 项目我们是使用模块化、微服务化，以下为各个模块地址，同时也欢迎业界感兴趣各位大佬前来贡献
 
-- 前端代码：[codo](https://github.com/opendevops-cn/codo)
-- 管理后端：[codo-admin](https://github.com/opendevops-cn/codo-admin)
-- 配置管理平台：[codo-cmdb](https://github.com/opendevops-cn/codo-cmdb)
-- 任务调度：[codo-flow](https://github.com/opendevops-cn/codo-flow)
-- 配置中心：[codo-kerrigan](https://github.com/opendevops-cn/kerrigan)
-- 通知中心：[codo-notice](https://github.com/opendevops-cn/codo-notice)
-- 灵云-kubernetes管理 ：[codo-cnmp](https://github.com/opendevops-cn/codo-cnmp)
-- 管控中心 ：[codo-agent-server](https://github.com/opendevops-cn/codo-agent-server)
-- 前端基座 ：[codo-home-index](https://github.com/opendevops-cn/codo-home-index)
-- 天门网关 ：[codo-gateway](https://github.com/opendevops-cn/codo-gateway)
+- 前端代码：[cortisdevops](https://github.com/cortisdevops-cn/cortisdevops)
+- 管理后端：[cortisdevops-admin](https://github.com/cortisdevops-cn/cortisdevops-admin)
+- 配置管理平台：[cortisdevops-cmdb](https://github.com/cortisdevops-cn/cortisdevops-cmdb)
+- 任务调度：[cortisdevops-flow](https://github.com/cortisdevops-cn/cortisdevops-flow)
+- 配置中心：[cortisdevops-kerrigan](https://github.com/cortisdevops-cn/kerrigan)
+- 通知中心：[cortisdevops-notice](https://github.com/cortisdevops-cn/cortisdevops-notice)
+- 灵云-kubernetes管理 ：[cortisdevops-cnmp](https://github.com/cortisdevops-cn/cortisdevops-cnmp)
+- 管控中心 ：[cortisdevops-agent-server](https://github.com/cortisdevops-cn/cortisdevops-agent-server)
+- 前端基座 ：[cortisdevops-home-index](https://github.com/cortisdevops-cn/cortisdevops-home-index)
+- 天门网关 ：[cortisdevops-gateway](https://github.com/cortisdevops-cn/cortisdevops-gateway)
+
+### 系统说明书
+
+#### 系统定位
+
+cortisdevops 面向企业运维和平台工程团队，提供一个统一的运维入口，用于纳管多云资源、业务资产、自动化任务、配置、通知、Kubernetes 集群和 Agent 节点。平台通过模块化和微服务化拆分，将用户权限、资源数据、任务编排、配置中心、通知中心、云原生管理和网关能力解耦，方便团队按模块独立部署、升级和扩展。
+
+#### 使用对象
+
+- **平台管理员**：负责应用接入、用户管理、角色权限、业务隔离和基础配置。
+- **运维工程师**：负责 CMDB 资源维护、脚本执行、文件分发、流程编排、发布任务和故障处理。
+- **研发团队**：通过标准化流程发起 CI/CD、发布审批、配置变更和日常作业。
+- **业务负责人**：基于业务维度查看资源、流程、审批和告警通知。
+
+#### 核心能力
+
+- **统一入口**：通过前端基座和网关整合各业务模块，减少多系统切换成本。
+- **权限与业务隔离**：基于应用、业务、接口权限、菜单权限和角色实现 RBAC 管理。
+- **CMDB 资产管理**：维护业务树、云资产、主机、集群等资源数据，为自动化流程提供数据来源。
+- **自动化工作流**：支持脚本执行、文件分发、接口编排、审批流程、定时任务和 CI/CD 场景。
+- **配置中心**：集中管理业务配置，支持配置统一维护和下发。
+- **通知中心**：对接审批、告警和流程结果通知，提高事件响应效率。
+- **云原生管理**：支持 Kubernetes 多集群和云原生任务管理。
+- **Agent 管控**：通过 cortisdevops-agent-server 和 cortisdevops-agent 管理节点连接、跨网络通道和主机任务执行。
+
+#### 系统架构
+
+```text
+用户 / 浏览器
+   |
+   v
+前端基座 cortisdevops-home-index / cortisdevops
+   |
+   v
+天门网关 cortisdevops-gateway（OpenResty + Lua）
+   |
+   +-- cortisdevops-admin        用户、权限、应用、业务管理
+   +-- cortisdevops-cmdb         CMDB、业务树、云资产管理
+   +-- cortisdevops-flow         任务调度、脚本执行、流程编排
+   +-- kerrigan          配置中心
+   +-- cortisdevops-notice       通知中心
+   +-- cortisdevops-cnmp         Kubernetes / 云原生管理
+   +-- cortisdevops-agent-server Agent 管控中心
+   |
+   v
+MySQL / Redis / RabbitMQ / Kubernetes / 云厂商资源 / 主机 Agent
+```
+
+#### 典型使用流程
+
+1. **部署平台**：使用 Docker Compose 快速体验，或使用 Kubernetes Helm 部署生产环境。
+2. **初始化账号**：创建管理后台超级用户，登录平台完成基础配置。
+3. **配置组织与权限**：在 admin 中创建应用、业务、接口权限、菜单权限和角色。
+4. **录入资源数据**：在 CMDB 中维护业务树、云资产、主机和集群资源。
+5. **接入 Agent**：在需要执行主机任务或文件分发的环境中安装 cortisdevops-agent。
+6. **编排自动化流程**：在 cortisdevops-flow 中配置脚本、凭证、接口、流程节点和审批规则。
+7. **配置通知渠道**：在通知中心配置流程审批、任务结果和告警通知。
+8. **持续运维**：通过工作台、任务中心、CMDB 和云原生管理模块完成日常运维。
+
+#### 部署方式
+
+- **Docker Compose 部署**：适合本地体验、Demo 和开发测试环境，参考 [Docker Compose 部署文档](docs/zh/guide-v2/2-install/docker.md)。
+- **Kubernetes Helm 部署**：适合生产或类生产环境，参考 [Kubernetes Helm 部署文档](docs/zh/guide-v2/2-install/k8s.md)。
+- **部署资源仓库**：完整部署脚本和参数示例参考 [cortisdevops-deploy-docs](https://github.com/cortisdevops-cn/cortisdevops-deploy-docs)。
+
+#### 文档与二次开发入口
+
+- 使用文档：[docs/zh/guide-v2/README.md](docs/zh/guide-v2/README.md)
+- 架构说明：[docs/zh/guide-v2/1-architectures/README.md](docs/zh/guide-v2/1-architectures/README.md)
+- Admin 权限管理：[docs/zh/guide-v2/3-admin/README.md](docs/zh/guide-v2/3-admin/README.md)
+- CMDB 使用说明：[docs/zh/guide-v2/4-cmdb/README.md](docs/zh/guide-v2/4-cmdb/README.md)
+- Flow 工作流说明：[docs/zh/guide-v2/5-cortisdevops-flow/README.md](docs/zh/guide-v2/5-cortisdevops-flow/README.md)
+- 配置中心：[docs/zh/guide-v2/6-config-center/README.md](docs/zh/guide-v2/6-config-center/README.md)
+- 通知中心：[docs/zh/guide-v2/7-notice/README.md](docs/zh/guide-v2/7-notice/README.md)
+- 云原生管理：[docs/zh/guide-v2/8-cloud-native-management/README.md](docs/zh/guide-v2/8-cloud-native-management/README.md)
+
+#### 运维注意事项
+
+- 生产环境建议优先使用 Kubernetes Helm 部署，并将数据库、Redis、RabbitMQ 等中间件纳入统一备份和监控。
+- 权限配置建议按“只读权限”和“管理权限”拆分，避免普通用户拥有过大的接口权限。
+- 自动化脚本、凭证和发布流程需要通过业务维度隔离，并在上线前完成测试和审批。
+- Agent 节点涉及跨网络通信和主机任务执行，应关注网络连通性、节点权限和任务审计。
+- 文档站本身使用 VuePress 构建，可通过 `npm run build` 验证文档改动，不建议在本地随意执行 `npm run deploy`，该命令会发布到 GitHub Pages。
 
 ### 感谢贡献者
 
-感谢以下贡献着为CODO(CloudOpenDevOps)的贡献;  
+感谢以下贡献着为cortisdevops(cortisdevops)的贡献;
 感谢各位的付出，让维护因你们变的不再枯燥、世界因你们而美丽，此排名不分前后，谢谢大家!
 
 | Name                                          | Github Avatar                                                   | Name                                          | GitHub Avatar                                                    | Name                                              | Github Avatar                                                   |
@@ -120,7 +203,7 @@ CODO 是一款专为企业设计的开源全球一站式运维平台，支持多
 > 感兴趣的同学可以加入我们的QQ交流群,代码我们也会不断进行更新，感谢大家的支持。
 
 -
-一键加入QQ群：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=69f5e118727c7ea925cc8d2f0eef0d729898cb8a24eae47e2b3ca3dd048de9d9"><img border="0" src="images/join_qq_group.png" alt="CoDo  CloudOpenDevOps" title="OpenDevOps用户交流群"></a>
+一键加入QQ群：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=69f5e118727c7ea925cc8d2f0eef0d729898cb8a24eae47e2b3ca3dd048de9d9"><img border="0" src="images/join_qq_group.png" alt="cortisdevops  cortisdevops" title="cortisdevops用户交流群"></a>
 
 - 扫描二维码加群
 
@@ -156,4 +239,4 @@ Everything is [GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 | [pcghost](https://github.com/q48775533q/)         | ![](https://avatars3.githubusercontent.com/u/17016455?s=70&v=4) | ￥100  |
 | [ca7dEm0n](https://github.com/ca7dEm0n)           | ![](https://avatars3.githubusercontent.com/u/14136093?s=70&v=4) | ￥100  |
 | [jiangming](https://github.com/jiangming1)        | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥100  |
-| [金额共计](https://github.com/opendevops-cn)          | ![](https://avatars3.githubusercontent.com/u/44669566?s=70&v=4) | ￥2700 |
+| [金额共计](https://github.com/cortisdevops-cn)          | ![](https://avatars3.githubusercontent.com/u/44669566?s=70&v=4) | ￥2700 |

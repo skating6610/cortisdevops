@@ -1,19 +1,19 @@
-# 手把手教你玩转 一站式运维平台(CODO) - 5.1 安装 codo-agent
+# 手把手教你玩转 一站式运维平台(cortisdevops) - 5.1 安装 cortisdevops-agent
 
-# codo-agent入门到精通
+# cortisdevops-agent入门到精通
 
 ## 简单使用
 
-### codo-agent
+### cortisdevops-agent
 
 
 
 #### 启动 agnet
 
 ```shell
-curl -L -o ./codo-agent https://github.com/opendevops-cn/codo-agent-server/releases/download/v1.8.6/codo-agent-linux-amd64
-chmod +x ./codo-agent
-./codo-agent --config-file ./config.yaml
+curl -L -o ./cortisdevops-agent https://github.com/cortisdevops-cn/cortisdevops-agent-server/releases/download/v1.8.6/cortisdevops-agent-linux-amd64
+chmod +x ./cortisdevops-agent
+./cortisdevops-agent --config-file ./config.yaml
 ```
 
 #### 配置详情
@@ -30,11 +30,11 @@ LOG-LEVEL: info
 # 业务ID(必填, 默认 502)
 BIZ-ID: "504"
 # 连接服务地址(必填, agent-server 的地址, clientId 需要全局唯一)
-# SERVER-ADDRESS: "ws://127.0.0.1:8002/api/v1/codo/agent?clientId=huaweibook1"
+# SERVER-ADDRESS: "ws://127.0.0.1:8002/api/v1/cortisdevops/agent?clientId=huaweibook1"
 # 也可以是 AGENT-PROXY 的地址
-# SERVER-ADDRESS: "ws://127.0.0.1:9999/api/v1/codo/agent?clientId=huaweibook1"
+# SERVER-ADDRESS: "ws://127.0.0.1:9999/api/v1/cortisdevops/agent?clientId=huaweibook1"
 # 也可以填 demo 的地址
-SERVER-ADDRESS: "ws://demo.opendevops.cn/api/agent-ws/v1/codo/agent?clientId=cctest"
+SERVER-ADDRESS: "ws://demo.cortisdevops.cn/api/agent-ws/v1/cortisdevops/agent?clientId=cctest"
 ```
 
 以下是全量配置:
@@ -54,7 +54,7 @@ LOG-LEVEL: info
 # - 存储agent日志文件
 ROOT-PATH: "./data/agent"
 # 连接服务地址(必填, agent-server/proxy 的地址, clientId 需要全局唯一)
-SERVER-ADDRESS: "ws://127.0.0.1:9999/api/v1/codo/agent?clientId=huaweibook1"
+SERVER-ADDRESS: "ws://127.0.0.1:9999/api/v1/cortisdevops/agent?clientId=huaweibook1"
 # 节点类型(选填)
 # - normal(默认值)
 # - master(当节点为master时，自动开启AGENT代理模式, 用于将多个 AGENT 的连接归并起来一起转发到 AGENT-SERVER)(生产环境推荐使用)
@@ -81,9 +81,9 @@ EXPR-FORCE-KILL-SUB-PROC: false
 
 #### 修改 AGENT ID
 agent-id 新版本自动生成, 一旦生成, 一般来说禁止修改.
-如果有必须要修改的需求, 可以在 codo-agent 的工作目录下修改
-```shell 
-echo -n "cctest1" > ./codo_status/.agent_id
+如果有必须要修改的需求, 可以在 cortisdevops-agent 的工作目录下修改
+```shell
+echo -n "cctest1" > ./cortisdevops_status/.agent_id
 ```
 
 
@@ -108,28 +108,28 @@ agent 连接上之后会默认进入到 CMDB 的 Agent 列表页面.
 
 
 
-### codo-agent-server
+### cortisdevops-agent-server
 
 #### 数据库 migrate
 
 ```
-./codo-agent-server migrate --config-file ./config.yaml
+./cortisdevops-agent-server migrate --config-file ./config.yaml
 ```
 
 #### 启动 agent-server
 
 ```
-./codo-agent-server --config-file ./config.yaml
+./cortisdevops-agent-server --config-file ./config.yaml
 ```
 
 #### 配置详情
 
 ```yaml
-# HTTP 服务端口(用于接收codo-flow的请求)
+# HTTP 服务端口(用于接收cortisdevops-flow的请求)
 PORT: 9996
 # GRPC 通信端口(暂时没用, 用于服务注册)
 RPC-PORT: 9997
-# websocket 连接专用端口(用于codo-agent建立 ws 连接)
+# websocket 连接专用端口(用于cortisdevops-agent建立 ws 连接)
 WS-PORT: 9999
 # 性能采集端口(用于提供 metrics )
 PPROF-PORT: 9995
@@ -147,7 +147,7 @@ ROOT-PATH: E:\go\src\agent-server
 LOG-LEVEL: DEBUG
 
 
-# RabbitMQ 配置 (用于将 agent 的日志上报到 codo-flow)
+# RabbitMQ 配置 (用于将 agent 的日志上报到 cortisdevops-flow)
 MQCONFIG:
   ENABLED: true
   SCHEMA: "amqp"
@@ -155,7 +155,7 @@ MQCONFIG:
   PORT: 5672
   USERNAME: "admin"
   PASSWORD: "123456"
-  VHOST: "codo"
+  VHOST: "cortisdevops"
 
 
 # MYSQL 配置, 用于存储 agent-server 的数据
@@ -164,15 +164,15 @@ DB-CONFIG:
   DB-USER: root
   DB-PASSWORD: 123456
   DB-HOST: 127.0.0.1
-  DB-NAME: codo_agent_server
-  DB-TABLE-PREFIX: codo_
+  DB-NAME: cortisdevops_agent_server
+  DB-TABLE-PREFIX: cortisdevops_
   DB-FILE: ""
   DB-PORT: 3306
 
 
 # REDIS 配置
 # 用于:
-#  存储 codo-agent 的心跳
+#  存储 cortisdevops-agent 的心跳
 REDIS:
   R-HOST: 127.0.0.1
   R-PORT: 6379
@@ -181,7 +181,7 @@ REDIS:
 # REDIS 发布订阅配置
 # 用于:
 #  CDMB 任务同步
-#  CODO 任务分发
+#  cortisdevops 任务分发
 PUBLISH:
   P-HOST: 127.0.0.1
   P-PORT: 6379
@@ -216,7 +216,7 @@ curl -X POST 127.0.0.1:9996/api/v1/agent/task/batch \
       "args": {"taskId": "11asd"}
     }
   ]'
-  
+
 不同的 task-type 对应的 args 参数不同
 ====================================================
 GetRunningTask: 获取正在执行的任务
@@ -242,13 +242,13 @@ ExecCmd: 执行任务
 ```bash
 # 获取正在执行的任务
 
-curl -X POST http://127.0.0.1:9996/api/v1/codo/call \
+curl -X POST http://127.0.0.1:9996/api/v1/cortisdevops/call \
 -H 'Content-Type: application/json' \
 -d '{"TaskID": "xxx", "AgentID": "huaweibook1:6666", "TaskType": "GetRunningTask"}'
 
 
 # 下发任务
-curl -X POST http://127.0.0.1:9996/api/v1/codo/call \
+curl -X POST http://127.0.0.1:9996/api/v1/cortisdevops/call \
 -H 'Content-Type: application/json' \
 -d '{"TaskID": "abc---huaweibook1:6666", "AgentID": "huaweibook1:6666", "TaskType": "ExecCmd", "args":{"cmd":"echo helloworld","scriptParams":"{}"}}'
 ```

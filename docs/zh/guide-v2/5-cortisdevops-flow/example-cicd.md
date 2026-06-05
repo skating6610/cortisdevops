@@ -1,4 +1,4 @@
-# 手把手教你玩转 一站式运维平台(CODO) - 5.2 使用 codo-flow 实现 应用自动化CI/CD
+# 手把手教你玩转 一站式运维平台(cortisdevops) - 5.2 使用 cortisdevops-flow 实现 应用自动化CI/CD
 
 ## [持续集成] 配置打包机组
 
@@ -19,7 +19,7 @@
 - 长文本在脚本中变量指向一个文件路径(文件内容为 实际数据)
 - 短文本在脚本中变量直接指向 实际数据
 
-**凭证key 在 脚本中使用 `$CODO_{keyname}` 读取**
+**凭证key 在 脚本中使用 `$cortisdevops_{keyname}` 读取**
 
 ![image-20250802150638846](../images/image-20250802150638846.png)
 
@@ -49,7 +49,7 @@
 
 ### 配置自定义参数表单
 
-这里的 branch 在 脚本中使用 `codo_branch` 读取
+这里的 branch 在 脚本中使用 `cortisdevops_branch` 读取
 
 ![image-20250802152047873](../images/image-20250802152047873.png)
 

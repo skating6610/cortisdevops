@@ -32,8 +32,8 @@ sudo systemctl enable docker
 ### 2. 克隆仓库
 
 ```shell
-git clone https://github.com/opendevops-cn/codo-deploy-docs.git
-cd ./codo-deploy-docs/docker-deploy
+git clone https://github.com/cortisdevops-cn/cortisdevops-deploy-docs.git
+cd ./cortisdevops-deploy-docs/docker-deploy
 ```
 
 ### 3. 修改配置 [可跳过]
@@ -65,5 +65,5 @@ sh ./init_app.sh
 密码: **1qazXSW@**
 
 ```shell
-docker exec -it codo_mg python3 manage.py createsuperuser
+docker exec -it cortisdevops_mg python3 manage.py createsuperuser
 ```

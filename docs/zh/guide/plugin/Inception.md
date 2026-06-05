@@ -1,6 +1,6 @@
 # Inception
 
-> opendevops平台所用插件Inception部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件Inception部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 **1.在任何一台安装docker的主机上拉取镜像**
 
@@ -9,7 +9,7 @@
 **2.编辑inception配置文件，注意修改inception_remote四处配置项，指定一个数据库用以保存inception的备份及回滚语句**
 
 ```bash
-cat >/etc/inc.cnf <<EOF 
+cat >/etc/inc.cnf <<EOF
 [inception]
 general_log=1
 general_log_file=/var/log/inception.log

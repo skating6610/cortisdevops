@@ -99,11 +99,11 @@ Python3x版本后Docker里面需要加入--user的参数，修改Dockerfile, 加
 
 `PS 由于国内Android多数都被阉割了Google框架，不能扫码的输入手动贴入密钥`
 
-- 扫描条形码  
+- 扫描条形码
 
 ![](/google_auth01.jpg)
 
-- 手动输入密钥  
+- 手动输入密钥
 
 ![](/google_auth02.jpg)
 
@@ -111,7 +111,7 @@ Python3x版本后Docker里面需要加入--user的参数，修改Dockerfile, 加
 **手机丢失怎么办**
 
 1. 你可以搜索你之前的邮件记录，或者自行记录保存下来
-2. 对于CODO超级管理员可以登陆数据库自行查看，SQL语法：`select google_key from codo_admin.mg_users where username='codo_test';`
+2. 对于cortisdevops超级管理员可以登陆数据库自行查看，SQL语法：`select google_key from cortisdevops_admin.mg_users where username='cortisdevops_test';`
 
 :::
 
@@ -119,69 +119,69 @@ Python3x版本后Docker里面需要加入--user的参数，修改Dockerfile, 加
 
 ::: details 详细信息
 Q：可以登陆进去，但是一直闪屏刷新/退出？
-  
-A：出现这个问题是因为网关`token_secret`和`codo-admin`里面`token_secret`配置不一样，改成一样即可。
+
+A：出现这个问题是因为网关`token_secret`和`cortisdevops-admin`里面`token_secret`配置不一样，改成一样即可。
 请仔细阅读网关配置中的注册API网关文件 `configs.lua`这块
 :::
-  
-###  Docker内部的MySQL、Redis无法连接问题  
 
-> 有些同学发现在Docker内部无法连接到外面的MySQL，如下报错，一般都是防火墙引起的，防火墙不能关闭，因为NAT在用，清空掉Filter链 `iptables -F`或者添加上3306端口尝试下。  
+###  Docker内部的MySQL、Redis无法连接问题
+
+> 有些同学发现在Docker内部无法连接到外面的MySQL，如下报错，一般都是防火墙引起的，防火墙不能关闭，因为NAT在用，清空掉Filter链 `iptables -F`或者添加上3306端口尝试下。
 ::: details 详细信息
 ![](/243fb74c5a73af046696423d6ce7b92.png)
 
 :::
 
-### 网关提示域名gw.opendevops.cn找不到，或者网络不通
+### 网关提示域名gw.cortisdevops.cn找不到，或者网络不通
 ```
 iptables -F
 ### 这个是环境准备时候部署的dnsmasq所在的地址，请睁大眼睛不要写错了
-echo "nameserver 127.0.0.1" > /etc/resolv.conf   
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
 service dnsmasq restart
 systemctl restart docker.service
 ntpdate ntp1.aliyun.com
 ```
-### 新部署的系统无法创建User？没办法看到创建/重置/获取Token？  
+### 新部署的系统无法创建User？没办法看到创建/重置/获取Token？
 
 ::: details 详细信息
-Q：新部署的时候登陆进去，点击用户列表没办法创建/看不到重置密码/重置MFA按钮等问题？ 
+Q：新部署的时候登陆进去，点击用户列表没办法创建/看不到重置密码/重置MFA按钮等问题？
 
-A：这个问题是因为没有创建角色，默认部署的时候权限/组件数据都是初始化进去的，但是角色需要用户自己创建，用户可以点击**用户管理**-->**角色管理**  新建一个角色，给所有组件/菜单/权限  然后退出，强刷下浏览器就可以了  
+A：这个问题是因为没有创建角色，默认部署的时候权限/组件数据都是初始化进去的，但是角色需要用户自己创建，用户可以点击**用户管理**-->**角色管理**  新建一个角色，给所有组件/菜单/权限  然后退出，强刷下浏览器就可以了
 
-操作步骤可参考：https://docs.opendevops.cn/zh/guide/more/permission/
+操作步骤可参考：https://docs.cortisdevops.cn/zh/guide/more/permission/
 
 :::
 
-### 如何在 CODO 上开发新应用
+### 如何在 cortisdevops 上开发新应用
 
-> 基于CODO的开发框架进行开发新应用，前端、后端怎么开发和注册
+> 基于cortisdevops的开发框架进行开发新应用，前端、后端怎么开发和注册
 ::: details 详细信息
 
 Q：前端怎么开发接入？
 
-1. CODO 使用 qiankun 微前端架构进行模块集成。
-2. 使用CODO官方模板：[codo-subapp-tpl 前端模板]((https://github.com/opendevops-cn/codo-subapp-tpl))
-3. 开发完成后，将子应用注册到 CODO 主框架中，关于注册和通信方式，详见：[微前端开发文档]((https://github.com/opendevops-cn/codo-subapp-tpl)) 
-   
+1. cortisdevops 使用 qiankun 微前端架构进行模块集成。
+2. 使用cortisdevops官方模板：[cortisdevops-subapp-tpl 前端模板]((https://github.com/cortisdevops-cn/cortisdevops-subapp-tpl))
+3. 开发完成后，将子应用注册到 cortisdevops 主框架中，关于注册和通信方式，详见：[微前端开发文档]((https://github.com/cortisdevops-cn/cortisdevops-subapp-tpl))
+
 Q：后端怎么开发接入？
 
-1. 后端服务应提供标准 RESTful 接口，并通过 天门网关 接入 CODO。
+1. 后端服务应提供标准 RESTful 接口，并通过 天门网关 接入 cortisdevops。
 2. 使用任意后端框架（如 SpringBoot / Node.js / Flask）
 3. 接口路径规范化，并配置到天门网关中
-4. 配置参考文档 [天门文档](https://github.com/opendevops-cn/codo-gateway)
+4. 配置参考文档 [天门文档](https://github.com/cortisdevops-cn/cortisdevops-gateway)
 
 Q：应用展示与注册？
-> 将你的应用注册到 CODO 管理后台即可在主界面展示。
+> 将你的应用注册到 cortisdevops 管理后台即可在主界面展示。
 
-1. 登录 CODO 管理后台
+1. 登录 cortisdevops 管理后台
 2. 进入 应用管理 页面，添加你的应用信息
-3. 具体配置字段详见： [用户手册]((https://github.com/opendevops-cn/codo-admin/blob/main/docs/codo-admin.md))。
+3. 具体配置字段详见： [用户手册]((https://github.com/cortisdevops-cn/cortisdevops-admin/blob/main/docs/cortisdevops-admin.md))。
 
-**📚 其他参考资料** 
+**📚 其他参考资料**
 
 - 🔧 [qiankun 微前端框架](https://github.com/umijs/qiankun)
 
-::: 
+:::
 
 ### Docker compose 的部署如何更新最新版本
 ::: details 详细信息
@@ -193,7 +193,7 @@ docker compose -f docker-compose-app.yaml pull
 docker compose -f docker-compose-app.yaml up -d
 ```
 
-2. 更新后报500错误，一般是字段发生变更需要删表重建或者自己补齐字段 
+2. 更新后报500错误，一般是字段发生变更需要删表重建或者自己补齐字段
 
 推荐把错误信息发给AI（GPT、Gemini、DS）让AI 告诉你怎么补齐新加的字段即可。
 
@@ -208,13 +208,13 @@ docker compose -f docker-compose-app.yaml up -d
 
 #### 1. 生成流程过程变量
 
-通过脚本输出标准化的格式，以便后续从日志中提取变量。约定格式为： 
+通过脚本输出标准化的格式，以便后续从日志中提取变量。约定格式为：
 
 - 以 ###SOF### 开头，###EOF### 结尾。
 - 内容为合法的 JSON 字符串。
 
 **示例代码（Python）:**
-```python 
+```python
 #!/usr/bin/env python
 
 import json
@@ -238,7 +238,7 @@ print(f"###SOF###{json.dumps(data)}###EOF###")
 #### 2. 无论使用何种语言，都可以从环境变量或上一步输出中获取上下文数据。以下是不同场景的实现方式：
 
 > FLOW_ID 和 NODE_ID 属于系统内置的变量可以直接获取
-> 环境变量 需要加codo_前缀
+> 环境变量 需要加cortisdevops_前缀
 
 **示例代码（Shell/Bash）:**
 ```bash
@@ -254,8 +254,8 @@ echo "订单的ID: ${FLOW_ID}"
 echo "当前任务节点的ID: ${NODE_ID}"
 echo "当前任务执行的agent的crc32之后agent_id: ${crc32_agent_id}"
 echo -e "------------\n\n"
-# 环境变量 需要加codo_前缀
-echo "上个节点输出的名称: ${codo_name}"
+# 环境变量 需要加cortisdevops_前缀
+echo "上个节点输出的名称: ${cortisdevops_name}"
 
 ```
 
@@ -267,14 +267,14 @@ import os
 flow_id = os.getenv("FLOW_ID")
 node_id = os.getenv("NODE_ID")
 crc32_agent_id = os.getenv("crc32_agent_id")
-codo_name = os.getenv("codo_name")
+cortisdevops_name = os.getenv("cortisdevops_name")
 
 # 输出环境变量信息
 print("==== 环境变量 ====")
 print(f"订单的 ID: {flow_id}")
 print(f"当前任务节点的 ID: {node_id}")
 print(f"Agent 的 CRC32 编码后 ID: {crc32_agent_id}")
-print(f"上个节点输出的名称: {codo_name}")
+print(f"上个节点输出的名称: {cortisdevops_name}")
 
 ```
 
@@ -283,6 +283,6 @@ print(f"上个节点输出的名称: {codo_name}")
 
 - FLOW_ID + NODE_ID：保证全局唯一性，用于标识同一流程中不同节点。
 - FLOW_ID + NODE_ID + crc32_agent_id：在批量执行场景中，可进一步区分任务实例。
-  
+
 
 :::

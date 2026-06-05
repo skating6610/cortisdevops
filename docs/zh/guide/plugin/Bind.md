@@ -1,6 +1,6 @@
 # DNS Bind
 
->opendevops平台所用组件[域名管理](https://github.com/opendevops-cn/codo-dns)Bind部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+>cortisdevops平台所用组件[域名管理](https://github.com/cortisdevops-cn/cortisdevops-dns)Bind部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 **安装配置**
 ```bash
@@ -71,7 +71,7 @@ ps -ef|grep named
 - 测试DNS服务，命令如下：
 ```bash
 ### 编辑dns解析文件 并写入你的DNS服务器地址
-vim /etc/resolv.conf 
+vim /etc/resolv.conf
 nameserver 172.16.0.111
 dig ftp.ss.com
 ```

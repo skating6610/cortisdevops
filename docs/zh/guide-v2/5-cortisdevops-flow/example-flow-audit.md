@@ -1,4 +1,4 @@
-# 手把手教你玩转 一站式运维平台(CODO) - 5.4 codo-flow 配置流程审批
+# 手把手教你玩转 一站式运维平台(cortisdevops) - 5.4 cortisdevops-flow 配置流程审批
 
 ## 通知中心配置
 
@@ -9,10 +9,10 @@
 流程系统会把所有消息回调给消息中心
 
 ```Plain
-codo_callback_args 系统间回调信息，不用管
-codo_flow_creator  订单发起者
+cortisdevops_callback_args 系统间回调信息，不用管
+cortisdevops_flow_creator  订单发起者
 title： 订单名称
-codo_noticer：通知人
+cortisdevops_noticer：通知人
 flow_bpm_name：当前审批节点的名称
 其他变量都可以直接在通知模板中取用
 ```

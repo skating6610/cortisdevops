@@ -13,11 +13,11 @@ cd docs/.vuepress/dist
 touch .nojekyll
 
 git init
-echo "docs.opendevops.cn" > CNAME
+echo "docs.cortisdevops.cn" > CNAME
 git add -A
 git commit -m 'deploy'
 
-git push -f "git@github.com:opendevops-cn/opendevops-cn.github.io.git" master
+git push -f "git@github.com:cortisdevops-cn/cortisdevops-cn.github.io.git" master
 
 cd -
 

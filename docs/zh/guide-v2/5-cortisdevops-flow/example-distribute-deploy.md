@@ -1,4 +1,4 @@
-# 手把手教你玩转 一站式运维平台(CODO) - 5.3 使用 codo-flow + cmdb 实现 跨地区应用部署
+# 手把手教你玩转 一站式运维平台(cortisdevops) - 5.3 使用 cortisdevops-flow + cmdb 实现 跨地区应用部署
 
 
 
@@ -42,7 +42,7 @@
 
 ## 配置发布脚本 & 使用全局节点
 
-![image-20250802153852979](/Users/eric/Library/Application%20Support/typora-user-images/image-20250802153852979.png)
+> 截图待补充：配置发布脚本与使用全局节点示例。
 
 ![image-20250802153755054](../images/image-20250802153755054.png)
 

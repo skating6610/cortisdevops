@@ -6,7 +6,7 @@
 
 视频里简单介绍了以下几种示例，至于模板里面的最终逻辑需要使用人根据自己的需求进行排版，编写等，不限制语言。
 
-[戳这里观看OpenDevOps任务平台示例视频](https://www.bilibili.com/video/av53424572/)
+[戳这里观看cortisdevops任务平台示例视频](https://www.bilibili.com/video/av53424572/)
 :::
 
 ::: details 点我展开
@@ -18,14 +18,14 @@
 ```
 {
 	"task_name": "这是通过JSON提交的任务",
-	"submitter": "yanghongfei", 
-	"temp_id": "1", 
-	"schedule": "ready",   
-	"exec_time": "2019-5-24 09:09:50", 
+	"submitter": "yanghongfei",
+	"temp_id": "1",
+	"schedule": "ready",
+	"exec_time": "2019-5-24 09:09:50",
 	"associated_user": "{'group-1': ['杨红飞']}",
 	"args": "{'VERSION':'你可以看到我这次传入的参数是VERSION，但是显示成了版本，是因为我在参数管理里面设置了别名'}",
 	"details": "这里是备注",
-	"hosts": "{1: '172.16.0.101'}"  
+	"hosts": "{1: '172.16.0.101'}"
 }
 ```
 
@@ -34,7 +34,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Author  : Fred Yangxiaofei
-# @File    : codo_post_task.py
+# @File    : cortisdevops_post_task.py
 # @Role    : 利用脚本向平台提交一个任务
 
 import json
@@ -61,7 +61,7 @@ def post_task(temp_id, schedule):
     hosts = {1: '172.16.0.101'}
     #这里都是传入的参数
     args = {
-        "TAG": 'codo-beta0.3',
+        "TAG": 'cortisdevops-beta0.3',
         "GIT_URL": "git@gitlab.xxxxxxx.com:xxxxx/xxxxx.git",
         "APP_NAME": "Web"
     }
@@ -99,7 +99,7 @@ if __name__ == '__main__':
 ```
 
 - 示例5. 怎么根据Git Hooks来提交一个任务
-主要基于`GitLab Custom Hooks`和`GitLab Tag`借助opendevops平台实现自动化发布，以下为所用到的功能简单介绍。
+主要基于`GitLab Custom Hooks`和`GitLab Tag`借助cortisdevops平台实现自动化发布，以下为所用到的功能简单介绍。
 这里基本上和上面一样，就是多一个怎么用`update`钩子获取Tag
 
 **为什么使用Git TAG发布,然后再接到平台里面呢？**
@@ -121,9 +121,9 @@ if __name__ == '__main__':
 如何使用？
 
 本章主要使用项目钩子，不建议使用全局钩子，这样会出问题，亲自尝试，毕竟我们的需求是针对xxx项目进行做自动化发布的。
-  
-  
-登陆GitLab服务器操作  
+
+
+登陆GitLab服务器操作
 
 ```shell
 
@@ -131,8 +131,8 @@ $ cd <project_name>.git/
 $ mkdir -p custom_hooks ; chown -R git.git custom_hooks; chmod 777 custom_hooks
 
 ```
-  
- 
+
+
 创建[Update](http://yanghongfei.me/2019/03/25/git-hooks/)钩子
 
 
@@ -237,7 +237,7 @@ echo "README" > README.md
 git add --all
 git commit -m "[Add] README,测试发布"
 git push -u origin origin
-git tag release-yanghongfei-v1  
+git tag release-yanghongfei-v1
 git push -u origin release-yanghongfei-v1  #把tag推送上去
 
 ```
@@ -249,7 +249,7 @@ git push -u origin release-yanghongfei-v1  #把tag推送上去
 ### 基于任务平台实现Git发布示例
 
 ::: tip
-本章节实验环境主要基于`GitLab Custom Hooks`和`GitLab Tag`借助opendevops平台实现自动化发布，以下为所用到的功能简单介绍。
+本章节实验环境主要基于`GitLab Custom Hooks`和`GitLab Tag`借助cortisdevops平台实现自动化发布，以下为所用到的功能简单介绍。
 :::
 
 ::: details 点我展开
@@ -259,10 +259,10 @@ git push -u origin release-yanghongfei-v1  #把tag推送上去
 - [GitLab](https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/README.md)
 - [GitLab Hooks](http://yanghongfei.me/2019/03/25/git-hooks/)
 - [GitLab Depoly Keys](http://yanghongfei.me/2019/03/19/gitlab-api-enable-depoly-key/)
-- [OpenDevOps 开源自动化运维平台](http://www.opendevops.cn/)
+- [cortisdevops 开源自动化运维平台](http://www.cortisdevops.cn/)
 
 
-**发布为什么选择过OpenDevOps平台**
+**发布为什么选择过cortisdevops平台**
 
 - 进度可视化
 - 平台发布记录
@@ -282,7 +282,7 @@ git push -u origin release-yanghongfei-v1  #把tag推送上去
 
 - 记下模板ID
 - 模板执行顺序自行排版
-- [opendevops模板使用说明](https://docs.opendevops.cn/zh/guide/used/#%E4%BB%BB%E5%8A%A1%E6%A8%A1%E7%89%88)
+- [cortisdevops模板使用说明](https://docs.cortisdevops.cn/zh/guide/used/#%E4%BB%BB%E5%8A%A1%E6%A8%A1%E7%89%88)
 ![](/005X1wn0gy1g1ewg3sgrrj31gk0n7n0o.jpg)
 
 
@@ -296,9 +296,9 @@ git push -u origin release-yanghongfei-v1  #把tag推送上去
 如何使用？
 
 本章主要使用项目钩子，不建议使用全局钩子，这样会出问题，亲自尝试，毕竟我们的需求是针对xxx项目进行做自动化发布的。
-  
-  
-登陆GitLab服务器操作  
+
+
+登陆GitLab服务器操作
 
 ```shell
 
@@ -306,15 +306,15 @@ $ cd <project_name>.git/
 $ mkdir -p custom_hooks ; chown -R git.git custom_hooks; chmod 777 custom_hooks
 
 ```
-  
- 
+
+
 创建[Update](http://yanghongfei.me/2019/03/25/git-hooks/)钩子
 
 
 > 这里我有已经运行2年的脚本供各位参考。
 
-```python 
- 
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Author  : Fred Yangxiaofei
@@ -337,8 +337,8 @@ def post_task(tag, temp_id, schedule):
 
     """
     #这里是浏览器Cookie里面auth_key，可使用超级管理员用户，平台获取长期auth_key
-    auth_key = "va2VuIsImRhdGEiOnsi9.BgP8UAoNiBkzJNSN1pa-eQVjlAxrKGxYZf0YgvXv39k"  
-    # 这里hosts必须是IP，CODO平台只走的是SSH协议，需要在执行用户配置链接主机的key,或者自行打通。
+    auth_key = "va2VuIsImRhdGEiOnsi9.BgP8UAoNiBkzJNSN1pa-eQVjlAxrKGxYZf0YgvXv39k"
+    # 这里hosts必须是IP，cortisdevops平台只走的是SSH协议，需要在执行用户配置链接主机的key,或者自行打通。
     hosts = {1: '118.25.xx.xx'}  # 上海Salt IP，执行主机IP。
     args = {
         "TAG": tag,
@@ -357,7 +357,7 @@ def post_task(tag, temp_id, schedule):
         "executor": "githook"
     })
 
-    accept_task_url = 'https://codo-v1.domain.com/api/task/v2/task/accept/'
+    accept_task_url = 'https://cortisdevops-v1.domain.com/api/task/v2/task/accept/'
     req1 = requests.get(accept_task_url, cookies=dict(auth_key=auth_key))
     csrf_key = json.loads(req1.text)['csrf_key']
     cookies = dict(auth_key=auth_key, csrf_key=csrf_key)
@@ -431,7 +431,7 @@ git push -u origin release-dbtt-server-20190320-02  #把tag推送上去
 >
 > A：假如你内网DNS有多台，即使是管理简单的dnsmasq服务，你也要手动登录机器进行编辑配置文件，很麻烦，机器上直接操作是非常危险的，且没有回滚功能，一不小心就可能导致出错，Server 挂掉等。所以在此借助配置中心模块简单记录下，配置中心支持图形化操作、对比、回滚等操作
 
-- OpenDevOps平台
+- cortisdevops平台
 - 配置中心模块
 - 任务模板
 - 内网DNS服务(dnsmasq)
@@ -468,7 +468,7 @@ git push -u origin release-dbtt-server-20190320-02  #把tag推送上去
 
 这里需要在服务器上放一个拉取配置中心配置的一个脚本，逻辑就是，通过一个有权限的用户—拉取指定的配置信息—将配置同步到你的server上—-reload服务
 
-这里提供一个配置脚本示例(dnsmasq)，更详情的脚本可参考[配置中心](https://github.com/opendevops-cn/kerrigan/blob/master/libs/get_config.py)
+这里提供一个配置脚本示例(dnsmasq)，更详情的脚本可参考[配置中心](https://github.com/cortisdevops-cn/kerrigan/blob/master/libs/get_config.py)
 
 示例脚本放到DNS服务器目录：`/data1/shell/dns_publish.py`
 
@@ -505,7 +505,7 @@ class ConfApi:
         # self.auth_key 是一个长期Token，基于用户管理里面，管理员选中用户生成长期Token，默认发送到用户邮箱
         self.auth_key = 'eyJ0eXAiOiJKV1QiLCJhbmZpZyIsIm5pY2XcFBbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTMwMzQyNzYsIm5iZiI6MTU1Nzk5NDI1NiwiaWF0IjoxNTU3OTk0Mj3ZjZlXHU3NTI4XHU2MjM3IY2LCJpc3MiOiJhdXRoOiBzcyIsInN1YiI6Im15IHRva2VuIiwiaWQiOiIxNTYxODcxODA2MCIsImRhdGEiOnsidXNlcl9pZCI6NjYsInVzZXJuYW1lIjoiZ2V0X2NvFOOo'
         self.conf_path ='/tmp'
-        self.conf_config_api = "https://codo.domain.com/api/kerrigan/v1/conf/publish/config/"   #配置中心获取API
+        self.conf_config_api = "https://cortisdevops.domain.com/api/kerrigan/v1/conf/publish/config/"   #配置中心获取API
 
 
 
@@ -674,7 +674,7 @@ OSS私有读访问鉴权比较复杂，经过测试我们选型通过CDN做访�
 class  CDNAuth(BaseHandler):
     def get(self):
         # 记录CDN日志,暂不需要
-        pass 
+        pass
 ```
 
 
@@ -682,13 +682,13 @@ class  CDNAuth(BaseHandler):
 - 请求URL：`/api/mg/v1/storage/file/private/`
 - 请求方式：`POST`
 - 表头：`Content-Type:"multipart/form-data"，file-dir=""` file-dir 代表上传的目录，需要放入header，如果没有则默认为file目录
-- 参数： 
+- 参数：
 
   | 参数名   | 必选 | 类型 | 说明     |
   | -------- | ---- | ---- | -------- |
   | filename | 是   | str  | 文件名称 |
   | body     | 是   |      | 文件内容 |
-  
+
 
 - 输入示例
 
@@ -716,16 +716,16 @@ class  CDNAuth(BaseHandler):
 
   ![阿里云远程鉴权交互流程](/阿里云远程鉴权交互流程.jpg)
 
-- 用户通过CDN访问OSS资源的时候会带着访问的headers（我们统一登录的时候会把JWT数据写入前端的headers），CDN会使用携带的headers数据去我们的天门网关鉴权（天门网关需开启jwt auth 或者codo rbac插件），如果headers数据正常则可以访问，否则返回401状态，CDN则返回用户403。
+- 用户通过CDN访问OSS资源的时候会带着访问的headers（我们统一登录的时候会把JWT数据写入前端的headers），CDN会使用携带的headers数据去我们的天门网关鉴权（天门网关需开启jwt auth 或者cortisdevops rbac插件），如果headers数据正常则可以访问，否则返回401状态，CDN则返回用户403。
 
-  
+
   ![远端鉴权失败数据](/远端鉴权失败数据.jpg)
 
 - 示例在我们的自定义表单的上传组件中使用
 
   ![自定义表单使用上传接口](/自定义表单使用上传接口.jpg)
 
-- 上传成功可以直接预览  
+- 上传成功可以直接预览
 
   ![自定义表单使用上传接口成功](/自定义表单使用上传接口成功.jpg)
 

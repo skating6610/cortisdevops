@@ -1,6 +1,6 @@
 #! /bin/bash
 # install redis3.2
-# By OpenDevOps  
+# By cortisdevops
 
 
 echo -e "\033[32m [INFO]: Start install redis3.2 \033[0m"

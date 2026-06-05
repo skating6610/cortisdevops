@@ -1,14 +1,14 @@
 swagger: "2.0"
 info:
-  description: "[CODO](https://opendevops.cn/)是一款为用户提供企业多混合云、一站式[DEVOPS](https://opendevops.cn/)、自动化运维、完全开源的云管理平台、自动化运维平台"
+  description: "[cortisdevops](https://cortisdevops.cn/)是一款为用户提供企业多混合云、一站式[DEVOPS](https://cortisdevops.cn/)、自动化运维、完全开源的云管理平台、自动化运维平台"
   version: "1.0.0"
   title: "Swagger Petstore"
-  termsOfService: "https://opendevops.cn/"
+  termsOfService: "https://cortisdevops.cn/"
   contact:
     email: "admin@admin.admin"
   license:
     name: "GNU General Public License v3.0"
-    url: "https://github.com/opendevops-cn/opendevops/blob/master/LICENSE"
+    url: "https://github.com/cortisdevops-cn/cortisdevops/blob/master/LICENSE"
 host: "petstore.swagger.io"
 basePath: ""
 tags:
@@ -16,7 +16,7 @@ tags:
   description: "用户管理"
   externalDocs:
     description: "查看更多"
-    url: "https://opendevops.cn/"
+    url: "https://cortisdevops.cn/"
 schemes:
 - "https"
 - "http"
@@ -125,7 +125,7 @@ paths:
         required: true
         schema:
           $ref: "#/definitions/Accounts-Status"
-        
+
       responses:
         default:
           description: "successful operation"
@@ -224,5 +224,5 @@ definitions:
       name: "Accounts-Delete"
 
 externalDocs:
-  description: "查看更多关于CODO的消息"
-  url: "https://opendevops.cn/"
+  description: "查看更多关于cortisdevops的消息"
+  url: "https://cortisdevops.cn/"

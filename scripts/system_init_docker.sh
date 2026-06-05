@@ -1,6 +1,6 @@
 #! /bin/bash
 # install docker and docker-compose
-# By OpenDevOps  
+# By cortisdevops
 
 echo -e "\033[32m [INFO]: Start install docker,docker-compose \033[0m"
 yum install -y yum-utils device-mapper-persistent-data lvm2

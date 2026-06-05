@@ -1,6 +1,6 @@
 -- MySQL dump 10.14  Distrib 5.5.60-MariaDB, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: codo_task
+-- Host: 127.0.0.1    Database: cortisdevops_task
 -- ------------------------------------------------------
 -- Server version	5.7.25
 
@@ -473,7 +473,7 @@ CREATE TABLE `task_code_repository` (
 
 LOCK TABLES `task_code_repository` WRITE;
 /*!40000 ALTER TABLE `task_code_repository` DISABLE KEYS */;
-INSERT INTO `task_code_repository` VALUES (5,'demo','https://github.com/opendevops-cn/opendevops',NULL,'demo','2019-01-17 10:44:19');
+INSERT INTO `task_code_repository` VALUES (5,'demo','https://github.com/cortisdevops-cn/cortisdevops',NULL,'demo','2019-01-17 10:44:19');
 /*!40000 ALTER TABLE `task_code_repository` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -1,6 +1,6 @@
 -- MySQL dump 10.14  Distrib 5.5.60-MariaDB, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: codo_cron
+-- Host: 127.0.0.1    Database: cortisdevops_cron
 -- ------------------------------------------------------
 -- Server version	5.7.25
 
@@ -37,7 +37,7 @@ CREATE TABLE `apscheduler_jobs` (
 
 LOCK TABLES `apscheduler_jobs` WRITE;
 /*!40000 ALTER TABLE `apscheduler_jobs` DISABLE KEYS */;
-INSERT INTO `apscheduler_jobs` VALUES ('my_test',NULL,'€•¾\0\0\0\0\0\0}”(Œversion”KŒid”Œmy_test”Œfunc”Œ\Zcron.applications:exec_cmd”Œtrigger”Œapscheduler.triggers.cron”ŒCronTrigger”“”)”}”(hKŒtimezone”Œpytz”Œ_p”“”(Œ\rAsia/Shanghai”MèqK\0ŒLMT”t”R”Œ\nstart_date”NŒend_date”NŒfields”]”(Œ apscheduler.triggers.cron.fields”Œ	BaseField”“”)”}”(Œname”Œyear”Œ\nis_default”ˆŒexpressions”]”Œ%apscheduler.triggers.cron.expressions”Œ\rAllExpression”“”)”}”Œstep”NsbaubhŒ\nMonthField”“”)”}”(hŒmonth”h‰h ]”h$)”}”h\'NsbaubhŒDayOfMonthField”“”)”}”(hŒday”h‰h ]”h$)”}”h\'NsbaubhŒ	WeekField”“”)”}”(hŒweek”hˆh ]”h$)”}”h\'NsbaubhŒDayOfWeekField”“”)”}”(hŒday_of_week”h‰h ]”h$)”}”h\'Nsbaubh\Z)”}”(hŒhour”h‰h ]”h$)”}”h\'Nsbaubh\Z)”}”(hŒminute”h‰h ]”h$)”}”h\'Ksbaubh\Z)”}”(hŒsecond”h‰h ]”h\"ŒRangeExpression”“”)”}”(h\'NŒfirst”K\nŒlast”K\nubaubeŒjitter”NubŒexecutor”Œdefault”Œargs”)Œkwargs”}”(Œcmd”Œls -l”Œjob_id”huhŒexec_cmd”Œmisfire_grace_time”KŒcoalesce”ˆŒ\rmax_instances”KŒ\rnext_run_time”Nu.');
+INSERT INTO `apscheduler_jobs` VALUES ('my_test',NULL,'ï¿½ï¿½ï¿½\0\0\0\0\0\0}ï¿½(ï¿½versionï¿½Kï¿½idï¿½ï¿½my_testï¿½ï¿½funcï¿½ï¿½\Zcron.applications:exec_cmdï¿½ï¿½triggerï¿½ï¿½apscheduler.triggers.cronï¿½ï¿½CronTriggerï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(hKï¿½timezoneï¿½ï¿½pytzï¿½ï¿½_pï¿½ï¿½ï¿½(ï¿½\rAsia/Shanghaiï¿½Mï¿½qK\0ï¿½LMTï¿½tï¿½Rï¿½ï¿½\nstart_dateï¿½Nï¿½end_dateï¿½Nï¿½fieldsï¿½]ï¿½(ï¿½ apscheduler.triggers.cron.fieldsï¿½ï¿½	BaseFieldï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(ï¿½nameï¿½ï¿½yearï¿½ï¿½\nis_defaultï¿½ï¿½ï¿½expressionsï¿½]ï¿½ï¿½%apscheduler.triggers.cron.expressionsï¿½ï¿½\rAllExpressionï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½ï¿½stepï¿½Nsbaubhï¿½\nMonthFieldï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(hï¿½monthï¿½hï¿½h ]ï¿½h$)ï¿½ï¿½}ï¿½h\'Nsbaubhï¿½DayOfMonthFieldï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(hï¿½dayï¿½hï¿½h ]ï¿½h$)ï¿½ï¿½}ï¿½h\'Nsbaubhï¿½	WeekFieldï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(hï¿½weekï¿½hï¿½h ]ï¿½h$)ï¿½ï¿½}ï¿½h\'Nsbaubhï¿½DayOfWeekFieldï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(hï¿½day_of_weekï¿½hï¿½h ]ï¿½h$)ï¿½ï¿½}ï¿½h\'Nsbaubh\Z)ï¿½ï¿½}ï¿½(hï¿½hourï¿½hï¿½h ]ï¿½h$)ï¿½ï¿½}ï¿½h\'Nsbaubh\Z)ï¿½ï¿½}ï¿½(hï¿½minuteï¿½hï¿½h ]ï¿½h$)ï¿½ï¿½}ï¿½h\'Ksbaubh\Z)ï¿½ï¿½}ï¿½(hï¿½secondï¿½hï¿½h ]ï¿½h\"ï¿½RangeExpressionï¿½ï¿½ï¿½)ï¿½ï¿½}ï¿½(h\'Nï¿½firstï¿½K\nï¿½lastï¿½K\nubaubeï¿½jitterï¿½Nubï¿½executorï¿½ï¿½defaultï¿½ï¿½argsï¿½)ï¿½kwargsï¿½}ï¿½(ï¿½cmdï¿½ï¿½ls -lï¿½ï¿½job_idï¿½huhï¿½exec_cmdï¿½ï¿½misfire_grace_timeï¿½Kï¿½coalesceï¿½ï¿½ï¿½\rmax_instancesï¿½Kï¿½\rnext_run_timeï¿½Nu.');
 /*!40000 ALTER TABLE `apscheduler_jobs` ENABLE KEYS */;
 UNLOCK TABLES;
 

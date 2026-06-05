@@ -1,6 +1,6 @@
 #! /bin/bash
 # install node
-# By OpenDevOps  
+# By cortisdevops
 
 [ -f /usr/local/bin/node ] && echo "Node already exists" && exit -1
 cd /usr/local/src && rm -rf node-v8.11.3-linux-x64.tar.xz

@@ -1,9 +1,9 @@
 module.exports = {
-    title: 'OpenDevOps',
-    description: 'CoDo 快速入门文档',
+    title: 'cortisdevops',
+    description: 'cortisdevops 快速入门文档',
     head: [['link', {rel: 'icon', href: '/favicon.ico'}]],
     themeConfig: {
-        logo: 'https://img.opendevops.cn/logo.png',
+        logo: 'https://img.cortisdevops.cn/logo.png',
         nav: [
             {text: 'Home', link: '/'},
             {text: '招聘', link: '/zh/ad/'},
@@ -15,11 +15,11 @@ module.exports = {
                 ]
             },
             {text: '使用文档', link: '/zh/guide-v2/'},
-            // { text: '论坛', link: 'https://bbs.opendevops.cn/', target: '_blank' },
-            {text: '官网', link: 'https://www.opendevops.cn/', target: '_blank'},
-            {text: 'Demo', link: 'https://demo.opendevops.cn/user/login', target: '_blank'},
-            {text: 'Gitee', link: 'https://gitee.com/opendevops/opendevops', target: '_blank'},
-            {text: 'Github', link: 'https://github.com/opendevops-cn', target: '_blank'},
+            // { text: '论坛', link: 'https://bbs.cortisdevops.cn/', target: '_blank' },
+            {text: '官网', link: 'https://www.cortisdevops.cn/', target: '_blank'},
+            {text: 'Demo', link: 'https://demo.cortisdevops.cn/user/login', target: '_blank'},
+            {text: 'Gitee', link: 'https://gitee.com/cortisdevops/cortisdevops', target: '_blank'},
+            {text: 'Github', link: 'https://github.com/cortisdevops-cn', target: '_blank'},
             {
                 text: '了解更多',
                 items: [
@@ -65,11 +65,11 @@ module.exports = {
                         '/zh/guide-v2/4-cmdb/',
                         '/zh/guide-v2/4-cmdb/cloud-asset.md',
                         '/zh/guide-v2/4-cmdb/biz-tree.md',
-                        '/zh/guide-v2/5-codo-flow/',
-                        '/zh/guide-v2/5-codo-flow/codo-agent.md',
-                        '/zh/guide-v2/5-codo-flow/example-cicd.md',
-                        '/zh/guide-v2/5-codo-flow/example-distribute-deploy.md',
-                        '/zh/guide-v2/5-codo-flow/example-flow-audit.md',
+                        '/zh/guide-v2/5-cortisdevops-flow/',
+                        '/zh/guide-v2/5-cortisdevops-flow/cortisdevops-agent.md',
+                        '/zh/guide-v2/5-cortisdevops-flow/example-cicd.md',
+                        '/zh/guide-v2/5-cortisdevops-flow/example-distribute-deploy.md',
+                        '/zh/guide-v2/5-cortisdevops-flow/example-flow-audit.md',
                         '/zh/guide-v2/6-config-center/',
                         '/zh/guide-v2/7-notice/',
                         '/zh/guide-v2/8-cloud-native-management/'
@@ -97,11 +97,11 @@ module.exports = {
                 //     title: '使用flow编排自动化工作流',
                 //     collapsable: true,
                 //     children: [
-                //         '/zh/guide-v2/5-codo-flow/',
-                //         '/zh/guide-v2/5-codo-flow/codo-agent.md',
-                //         '/zh/guide-v2/5-codo-flow/example-cicd.md',
-                //         '/zh/guide-v2/5-codo-flow/example-distribute-deploy.md',
-                //         '/zh/guide-v2/5-codo-flow/example-flow-audit.md'
+                //         '/zh/guide-v2/5-cortisdevops-flow/',
+                //         '/zh/guide-v2/5-cortisdevops-flow/cortisdevops-agent.md',
+                //         '/zh/guide-v2/5-cortisdevops-flow/example-cicd.md',
+                //         '/zh/guide-v2/5-cortisdevops-flow/example-distribute-deploy.md',
+                //         '/zh/guide-v2/5-cortisdevops-flow/example-flow-audit.md'
                 //     ]
                 // },
                 // {
@@ -141,8 +141,8 @@ module.exports = {
                 //   title: '使用',
                 //   collapsable: false,
                 //   children: [
-                //     '/zh/guide/install/local/',
-                //     '/zh/guide/install/distribute/'
+                //     '/zh/guide-v2/2-install/docker.md',
+                //     '/zh/guide-v2/2-install/k8s.md'
                 //   ]
                 // }
             ]

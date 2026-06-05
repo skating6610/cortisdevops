@@ -1,6 +1,6 @@
 # 集群部署
 
-- `作者：青牛踏雪御苍穹（CoDo老王)`
+- `作者：青牛踏雪御苍穹（cortisdevops老王)`
 - 部署 ETCD 集群（自签证书）
 
 ### 准备工作
@@ -99,7 +99,7 @@ etcd                                                                            
 etcdctl                                                                                               100%   17MB  34.4MB/s   00:00
 >>> 192.168.1.222
 etcd                                                                                                  100%   23MB  52.0MB/s   00:00
-etcdctl                                                                                               100%   17MB  45.8MB/s   00:00  
+etcdctl                                                                                               100%   17MB  45.8MB/s   00:00
 ```
 
 ### 安装 cfssl 工具集
@@ -128,7 +128,7 @@ CA 配置文件用于配置根证书的使用场景 (profile) 和具体参数 (u
 
 
 ```bash
-cd ${ETCD_CA_DIR} 
+cd ${ETCD_CA_DIR}
 cat > ca-config.json <<EOF
 {
   "signing": {
@@ -214,7 +214,7 @@ EOF
 ### 生成证书文件和私钥
 
 ```bash
-cd ${ETCD_CA_DIR} 
+cd ${ETCD_CA_DIR}
 cfssl gencert -initca ca-csr.json | cfssljson -bare ca
 输出结果：
 2020/12/17 09:54:25 [INFO] generating a new CA key and certificate from CSR
@@ -250,7 +250,7 @@ ca-config.json                                                                  
 >>> 192.168.1.222
 ca-key.pem                                                                                            100% 1679   973.5KB/s   00:00
 ca.pem                                                                                                100% 1326   972.0KB/s   00:00
-ca-config.json  
+ca-config.json
 ```
 
 注意：
@@ -263,7 +263,7 @@ etcd-csr证书签名
 - `hosts`：指定授权使用该证书的 etcd 节点 IP 列表，**需要将 etcd 集群所有节点 IP 都列在其中**
 
 ```bash
-cd ${ETCD_CA_DIR} 
+cd ${ETCD_CA_DIR}
 cat > /data/etcd/ca/etcd-csr.json <<EOF
 {
   "CN": "etcd",
@@ -302,7 +302,7 @@ cfssl gencert -ca=${ETCD_CA_DIR}/ca.pem \
 2020/12/17 10:03:52 [INFO] received CSR
 2020/12/17 10:03:52 [INFO] generating key: rsa-2048
 2020/12/17 10:03:53 [INFO] encoded CSR
-2020/12/17 10:03:53 [INFO] signed certificate with serial number 290666497635689555552442344139619956527112356386    
+2020/12/17 10:03:53 [INFO] signed certificate with serial number 290666497635689555552442344139619956527112356386
 ```
 
 ### 分发证书
@@ -397,7 +397,7 @@ EOF
 source ${ETCD_DIR}/environment.sh
 for (( i=0; i < 3; i++ ))
   do
-    sed -e "s/##NODE_NAME##/${NODE_NAMES[i]}/" -e "s/##NODE_IP##/${NODE_IPS[i]}/" etcd.service.template > etcd-${NODE_IPS[i]}.service 
+    sed -e "s/##NODE_NAME##/${NODE_NAMES[i]}/" -e "s/##NODE_IP##/${NODE_IPS[i]}/" etcd.service.template > etcd-${NODE_IPS[i]}.service
 done
 # 验证
 ls *.service
@@ -456,7 +456,7 @@ done
 >>> 192.168.1.221
    Active: active (running) since Thu 2020-12-17 10:15:02 UTC; 36s ago
 >>> 192.168.1.222
-   Active: active (running) since Thu 2020-12-17 10:15:02 UTC; 40s ago  
+   Active: active (running) since Thu 2020-12-17 10:15:02 UTC; 40s ago
 ```
 
 

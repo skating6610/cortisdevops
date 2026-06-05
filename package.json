@@ -1,16 +1,17 @@
 {
-  "name": "vuepress-docs",
+  "name": "cortisdevops",
   "version": "1.0.0",
-  "description": "",
+  "description": "cortisdevops VuePress documentation site",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
+    "deploy": "bash depoly.sh",
     "depoly": "bash depoly.sh"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "err": "^2.1.12"
   },

@@ -8,7 +8,7 @@
 
 ###  SQLAdvisor部署文档
 
-> opendevops平台所用插件SQLAdvisor部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
+> cortisdevops平台所用插件SQLAdvisor部署文档， 部分文档会因为版本迭代不可用，此文档只作为参考文档，谢谢。
 
 
 **简介**

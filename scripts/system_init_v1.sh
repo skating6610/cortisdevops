@@ -25,7 +25,7 @@ cat > /etc/security/limits.conf <<EOF
 * hard nofile 65536
 EOF
 # centos 7.3 还是 7.4开始， 这个文件有一部分soft 和 nproc 内容，登陆后会被覆盖，/etc/security/limits.conf 不会生效
-echo > /etc/security/limits.d/20-nproc.conf 
+echo > /etc/security/limits.d/20-nproc.conf
 
 ulimit -n 65536
 ulimit -u 65536
@@ -110,7 +110,7 @@ function other(){
 	source /etc/profile
 	useradd -M -s /sbin/nologin nginx >/dev/null 2>&1
 	mkdir -p /root/ops_scripts /data1/www
-	mkdir -p /opt/codo/
+	mkdir -p /opt/cortisdevops/
 }
 
 export -f epel

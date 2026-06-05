@@ -1,6 +1,6 @@
 -- MySQL dump 10.14  Distrib 5.5.60-MariaDB, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: codo_tools
+-- Host: 127.0.0.1    Database: cortisdevops_tools
 -- ------------------------------------------------------
 -- Server version	5.7.25
 

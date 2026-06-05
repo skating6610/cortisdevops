@@ -6,17 +6,17 @@
 
 ```sh
 # 进入部署目录，例如：
-cd  ./codo-deploy-docs/docker-deploy
+cd  ./cortisdevops-deploy-docs/docker-deploy
 docker-compose  -f docker-compose-app.yaml pull
 ```
 
 ### 重新生成token
 
 ```sh
-TOKEN=$(docker exec codo_mg python3 manage.py token_init | tr -d '\n' | tr -d '\r')
-sed -i "s/^CODO_AUTH_KEY\s*=.*/CODO_AUTH_KEY=\"$TOKEN\"/" .env
+TOKEN=$(docker exec cortisdevops_mg python3 manage.py token_init | tr -d '\n' | tr -d '\r')
+sed -i "s/^cortisdevops_AUTH_KEY\s*=.*/cortisdevops_AUTH_KEY=\"$TOKEN\"/" .env
 
-sed -i.bak "s/^CODO_AUTH_KEY=.*/CODO_AUTH_KEY=\"$TOKEN\"/" .env # 如果是mac
+sed -i.bak "s/^cortisdevops_AUTH_KEY=.*/cortisdevops_AUTH_KEY=\"$TOKEN\"/" .env # 如果是mac
 ```
 
 ## 重新加载镜像
@@ -31,24 +31,24 @@ docker compose -f docker-compose-app.yaml up -d
 
 > 如果后端修改了表结构，我们的更新文档都会说明哪些需要`ALTER TABLE`,比如CMDB资产配置新增了华为云的支持，
 
-- 问题1：我不想重新初始化，里面有数据，想直接改表结构  
+- 问题1：我不想重新初始化，里面有数据，想直接改表结构
 
-```mysql  
+```mysql
 
 #进到你的数据库，每个模块都是对应一个版本库的
 
 ALTER TABLE `asset_configs` ADD `project_id` VARCHAR(120) NOT NULL ;
 ALTER TABLE `asset_configs` ADD `huawei_cloud` VARCHAR(120) NOT NULL ;
-ALTER TABLE `asset_configs` ADD `huawei_instance_id` VARCHAR(120) NOT NULL ;  
+ALTER TABLE `asset_configs` ADD `huawei_instance_id` VARCHAR(120) NOT NULL ;
 
 ```
 
-- 问题2：我不想改表结构怎么办？  
+- 问题2：我不想改表结构怎么办？
 
-> 如果你是新部署的用户/没数据的用户，你完全可以给这个库/表删除了执行初始化操作  
+> 如果你是新部署的用户/没数据的用户，你完全可以给这个库/表删除了执行初始化操作
 
 ```
-docker exec -ti cmdb_codo_cmdb_1 /usr/local/bin/python3 /var/www/codo-cmdb/db_sync.py
+docker exec -ti cmdb_cortisdevops_cmdb_1 /usr/local/bin/python3 /var/www/cortisdevops-cmdb/db_sync.py
 
 #最后同样，如上，更新最新代码即可
 ```

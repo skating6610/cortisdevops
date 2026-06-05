@@ -1,6 +1,6 @@
 # Kubernetes Helm 部署
 
-**一键安装CODO**
+**一键安装cortisdevops**
 ```shell
 bash ./quick_start/all_in_one.sh
 
@@ -17,7 +17,7 @@ export local_deploy_crd=true
 ```
 **使用**
 ```shell
-kubectl -n codo-test port-forward services/codo-biz-frontend 8888:80
+kubectl -n cortisdevops-test port-forward services/cortisdevops-biz-frontend 8888:80
 ```
 **进入控制台**
 - 账号: admin

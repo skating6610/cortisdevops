@@ -8,8 +8,8 @@
 
 ## 任务模版
 
-> 这部分文档主要用来介绍任务模板，任务模板：可以帮助你实现一个很强大、很复杂、可干预、自定义的任务流程模板；  
-> 任务模板功能主要分为：命令管理、模板管理、参数管理、执行用户等部分，由于这块稍微有点难理解，我们提供了[示例文档](https://docs.opendevops.cn/zh/guide/more/example/)和[视频演示](https://www.bilibili.com/video/av53424572/)
+> 这部分文档主要用来介绍任务模板，任务模板：可以帮助你实现一个很强大、很复杂、可干预、自定义的任务流程模板；
+> 任务模板功能主要分为：命令管理、模板管理、参数管理、执行用户等部分，由于这块稍微有点难理解，我们提供了[示例文档](https://docs.cortisdevops.cn/zh/guide/more/example/)和[视频演示](https://www.bilibili.com/video/av53424572/)
 
 
 
@@ -29,7 +29,7 @@
   - 命令名称：输入你的名称(建议是有意义的名字，后续方便你勾选使用)
   - 执行命令：可以是`Linux Bash`命令，如：`ls,free -m`，也可以是一个执行脚本，如：`python3 xxx.py`
   - 命令参数：这里一般用于执行脚本传入参数，如：`pytho3 xxx.py --host=127.0.0.1`，这里就可以填入自身参数：`--host=127.0.0.1`, 可留空，也可后续使用到修改
-  - 强制主机：默认可为空，用于你所填写的命令强制指定哪个主机上进行执行（注意：你所指定的这台机器IP，此平台必须可以登陆过去，否则无法执行，CODO平台如何登陆所指定的主机IP请参考`执行用户`文档）
+  - 强制主机：默认可为空，用于你所填写的命令强制指定哪个主机上进行执行（注意：你所指定的这台机器IP，此平台必须可以登陆过去，否则无法执行，cortisdevops平台如何登陆所指定的主机IP请参考`执行用户`文档）
 
 
 ![](/create_bash.png)
@@ -49,7 +49,7 @@
 - 模板可搜索、可编辑、可删除、模板权限细分等
 
 
-**如何使用**  
+**如何使用**
 
 点开`任务模板`->`模板管理`
 - 创建模板
@@ -83,7 +83,7 @@
 - 参数：此参数是你`命令管理`参数，自动带出，`参数例如：--host=127.0.0.1 --group=game01`空格隔离第二个参数
 - 执行用户： 此执行用户用于登陆你的执行主机，从`任务模板->执行用户`里面选择，详细见`执行用户`部分使用说明
 - 触发器：可选默认（默认直接执行）、定时（到达时间后开始执行，此时间是提交任务的时候指定的时间）、干预（需要手动触发执行）
-- 指定主机：指定那台主机执行此命令，IP地址形式，`CODO平台需要能登陆此主机`
+- 指定主机：指定那台主机执行此命令，IP地址形式，`cortisdevops平台需要能登陆此主机`
 - 删除： 删除所选项
 
 
@@ -136,7 +136,7 @@ $ [ ! -d /root/.ssh ] && mkdir /root/.ssh ; [ ! -f /root/.ssh/authorized_keys ] 
 
 > 这部分主要介绍代码发布的配置和一些SQL相关配置(更新中)，任务发布后续将会支持更多业务模块，目前以任务发布和SQL优化审核相关的配置为主；
 
-**操作教学视频**：[https://www.bilibili.com/video/av53424572/](https://www.bilibili.com/video/av53424572/ ) 
+**操作教学视频**：[https://www.bilibili.com/video/av53424572/](https://www.bilibili.com/video/av53424572/ )
 
 **应用发布**
 
@@ -265,7 +265,7 @@ $ [ ! -d /root/.ssh ] && mkdir /root/.ssh ; [ ! -f /root/.ssh/authorized_keys ] 
 - 5.exec_time： 任务执行时间，状态为ready的情况下，到这个时间会进行执行
 - 6.args：这里是一个字典，里面的参数可以自行定义，如上，你模板参数里面用到了哪些你都可以在这里定义出来，当你的POST到这个接口时候，我们会自动接受此参数，并帮你运行脚本 解析你要传入的参数。
 - 7.details：描述，备注信息
-- 8.hosts：这个是执行主机，字典形式， 1表示第一组主机，也就是上面模板里面的组1，任务支持多组。主机IP，这个是执行主机，这个废话多一点，比如我以上模板的脚本在172.16.0.101这台主机上，我就想平台登陆我这个主机，来帮我执行这些脚本，至于怎么登陆，那么就是我最开始在平台里面配置了一个执行用户，我将我这个主机的私钥放到了平台上，公钥在我服务器上，这样子CODO平台就可以ssh -i xxxx.pem@{ip_address}远程到我的主机上帮我执行命令。
+- 8.hosts：这个是执行主机，字典形式， 1表示第一组主机，也就是上面模板里面的组1，任务支持多组。主机IP，这个是执行主机，这个废话多一点，比如我以上模板的脚本在172.16.0.101这台主机上，我就想平台登陆我这个主机，来帮我执行这些脚本，至于怎么登陆，那么就是我最开始在平台里面配置了一个执行用户，我将我这个主机的私钥放到了平台上，公钥在我服务器上，这样子cortisdevops平台就可以ssh -i xxxx.pem@{ip_address}远程到我的主机上帮我执行命令。
 
 点开`自定义任务-JSON`
 
@@ -334,7 +334,7 @@ PS：已经文档会在后续过程中不断更新完善，感谢大家支持。
 
 ## 代码仓库
 
-> 列举一个平台上代码仓库部分的示例，让大家快速灵活的使用OpenDevOps平台，进行对接代码仓库的实战操作；
+> 列举一个平台上代码仓库部分的示例，让大家快速灵活的使用cortisdevops平台，进行对接代码仓库的实战操作；
 
 **创建代码仓库**
 
@@ -358,7 +358,7 @@ PS：已经文档会在后续过程中不断更新完善，感谢大家支持。
 至此，Gitlab的仓库信息已经可以同步到平台上了，如果你需要基于Gitlab 钩子进行操作，你需要进行以下配置
 
 - **Git服务器操作-->配置GitLab全局钩子**
-- **CODO平台操作--->配置单个仓库钩子匹配规则**
+- **cortisdevops平台操作--->配置单个仓库钩子匹配规则**
 
 
 
@@ -392,9 +392,9 @@ old_value = ARGV[1]
 new_value = ARGV[2]
 repo_path = Dir.pwd
 key_id    = ENV.delete('GL_ID')
-#CODO TASK，只需要加下面2行即可
-codo_task_script = '/opt/codo/codo-scripts/gitlab/codo_task.py'
-system(codo_task_script, ref_name, old_value, new_value)
+#cortisdevops TASK，只需要加下面2行即可
+cortisdevops_task_script = '/opt/cortisdevops/cortisdevops-scripts/gitlab/cortisdevops_task.py'
+system(cortisdevops_task_script, ref_name, old_value, new_value)
 
 require_relative '../lib/gitlab_custom_hook'
 
@@ -410,7 +410,7 @@ end
 ![](/20190705174524.png)
 
 
-`/opt/codo/codo-scripts/gitlab/codo_task.py`脚本内容
+`/opt/cortisdevops/cortisdevops-scripts/gitlab/cortisdevops_task.py`脚本内容
 
 注意： 一定要修改脚本中`accept_task_url` 、`git_url`、`auth_key`内容
 
@@ -419,7 +419,7 @@ end
 # -*- coding: utf-8 -*-
 # @Time    : 2019/6/27 13:48
 # @Author  : Fred Yangxiaofei
-# @File    : codo_task.py
+# @File    : cortisdevops_task.py
 # @Role    : GitLab全局Hooks  update钩子
 
 
@@ -429,14 +429,14 @@ import requests
 import json
 
 
-def post_codo_task():
+def post_cortisdevops_task():
     """
-    监控全局钩子，CODO提交任务
+    监控全局钩子，cortisdevops提交任务
     注意，Gitlab全局钩子调用此脚本的时候不能使用format
     :return:
     """
     # 修改你的钩子任务API接口
-    accept_task_url = 'https://codo.opendevops.com/api/task/other/v1/git/hooks/'
+    accept_task_url = 'https://cortisdevops.cortisdevops.com/api/task/other/v1/git/hooks/'
     # 修改你的GIT地址
     git_url = 'http://gitlab.domain.com/'
     # 修改你的长期Token，从管理员获取， 此用户的Token需要对/task/other/v1/git/hooks/接口有权限
@@ -465,13 +465,13 @@ def post_codo_task():
 
 
 if __name__ == '__main__':
-    post_codo_task()
+    post_cortisdevops_task()
 
 ```
 
 
 
-**第二步、CODO平台配置钩子规则**
+**第二步、cortisdevops平台配置钩子规则**
 
 > 针对单个项目进行配置钩子规则，当你打Tag/brach中提交的的时候，根据你的匹配规则，正则匹配、来触发你所定义的任务
 
@@ -517,7 +517,7 @@ git push -u origin release-ftqqminigame-test01
 
 ```
 
-**平台查看钩子日志**  
+**平台查看钩子日志**
 
 ![](/20190705175739.png)
 
@@ -537,7 +537,7 @@ git push -u origin release-ftqqminigame-test01
 
 **ZABBIX**
 
-本章主要介绍下CODO中的ZABBIX怎么使用，他能帮你做什么？
+本章主要介绍下cortisdevops中的ZABBIX怎么使用，他能帮你做什么？
 
 
 **功能简介**
@@ -576,7 +576,7 @@ But，你如果觉得这些还不够，接下来想要对报警进行下一步�
 
 - 权限配置用于向平台提交任务的权限，需要用户输入对应的API接口和Auth_key
 - auth_key：是管理员生成的长期Token
-- task_url：https://codo-v1.domain.com/api/task/v2/task/accept/  
+- task_url：https://cortisdevops-v1.domain.com/api/task/v2/task/accept/
 
 测试保存，这里会进行权限认证，只有通过了认证才能保存成功。
 
@@ -602,7 +602,7 @@ But，你如果觉得这些还不够，接下来想要对报警进行下一步�
 
 - 模拟ZABBIX告警信息来测试告警是否匹配，从而触发钩子任务
 
-![](/.png)  
+![](/.png)
 
 ![](/20190719095734.png)
 
@@ -613,11 +613,11 @@ But，你如果觉得这些还不够，接下来想要对报警进行下一步�
 从上图可以看到，正常匹配到了，触发了任务， 数据也传了过来，接下来了有数据，用户可以实现自己的逻辑了。
 
 
-那么如果告警没匹配怎么办， 我们来测试下  
+那么如果告警没匹配怎么办， 我们来测试下
 
 ![](/20190719095806.png)
 
-可以看到，他会给我说匹配不到钩子  
+可以看到，他会给我说匹配不到钩子
 
 ![](/20190719100136.png)
 
@@ -706,10 +706,10 @@ def send_alert(zabbix_url, webhook_url, messages):
 
 
 if __name__ == '__main__':
-    # 你的ZABBIX地址,高版本ZABBIX你也可以从ZABBIX配置中传过来,请确保你和CODO平台上配置的一模一样
+    # 你的ZABBIX地址,高版本ZABBIX你也可以从ZABBIX配置中传过来,请确保你和cortisdevops平台上配置的一模一样
     zabbix_url = 'http://zabbixdoamin.com/zabbix'
 
-    webhook_url = 'https://codo.domain.com/api/tools/v1/zabbix/hooks/'
+    webhook_url = 'https://cortisdevops.domain.com/api/tools/v1/zabbix/hooks/'
 
 
     # ZABBIX的告警信息，这个我要用到，所以就要强规范：{HOSTNAME}___{HOST.IP}___{TRIGGER.NAME}___{TRIGGER.STATUS}___{TRIGGER.SEVERITY}
@@ -725,7 +725,7 @@ pip install requests
 
 如何测试：
 
-python send_alert_to_codo.py '' 'Zabbix server___127.0.0.1___Zabbix agent on Zabbix server is unreachable for 5 minutes___PROBLEM___Average'
+python send_alert_to_cortisdevops.py '' 'Zabbix server___127.0.0.1___Zabbix agent on Zabbix server is unreachable for 5 minutes___PROBLEM___Average'
 """
 
 
@@ -831,7 +831,7 @@ pip install requests
 
 如何测试：
 
-python send_alert_to_codo.py https://codo.domain.com/api/tools/v1/zabbix/hooks/ alert_message_test
+python send_alert_to_cortisdevops.py https://cortisdevops.domain.com/api/tools/v1/zabbix/hooks/ alert_message_test
 """
 
 ```
@@ -952,7 +952,7 @@ CMDB中的几种状态
 > 这部分主要介绍下配置中心使用说明
 
 
-**新建项目**  
+**新建项目**
 
 ![](/configuration_center01.png)
 
@@ -975,24 +975,24 @@ CMDB中的几种状态
 
 > 那么我新建了一个配置，我怎么获取到他呢？ 没关系我们提供了获取配置的示例
 
-- 简单示例，也可[参考复杂示例](https://github.com/opendevops-cn/kerrigan/blob/master/libs/get_config.py)
+- 简单示例，也可[参考复杂示例](https://github.com/cortisdevops-cn/kerrigan/blob/master/libs/get_config.py)
 
-Python版本 
+Python版本
 
 ```python
 
-#!/usr/bin/env python 
- # -*-coding:utf-8-*- 
-import os 
-import requests 
-import json 
+#!/usr/bin/env python
+ # -*-coding:utf-8-*-
+import os
+import requests
+import json
 
 class ConfApi:
     def __init__(self):
         # self.auth_key 是一个长期Token，基于用户管理里面，管理员选中用户生成长期Token，默认发送到用户邮箱
         self.auth_key = 'eyJ0eXAiOiJKV1QiLCJhbmZpZyIsIm5pY2XcFBbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTMwMzQyNzYsIm5iZiI6MTU1Nzk5NDI1NiwiaWF0IjoxNTU3OTk0Mj3ZjZlXHU3NTI4XHU2MjM3IY2LCJpc3MiOiJhdXRoOiBzcyIsInQiOiIxNTYxODcxODA2MCIsImRhdGEiOnsidXNlcl9pZCI6NjYsInVzZXJuYW1lIjoiZ2V0X2NvFOOo'
         self.conf_path ='/tmp'
-        self.conf_config_api = "https://codo.domain.com/api/kerrigan/v1/conf/publish/config/"   #配置中心获取API
+        self.conf_config_api = "https://cortisdevops.domain.com/api/kerrigan/v1/conf/publish/config/"   #配置中心获取API
 
 
 
@@ -1038,9 +1038,9 @@ if __name__ == '__main__':
 
 
 
-Go版本    
+Go版本
 
-`go run write_conf.go -p code-v1 -e dev -s codo-admin -f settings.py -r /tmp/settings.py1`
+`go run write_conf.go -p code-v1 -e dev -s cortisdevops-admin -f settings.py -r /tmp/settings.py1`
 ```go
 // 用golang编写，可以应付多种环境，并且可以对文件编译，防止密钥泄露
 package main
@@ -1057,7 +1057,7 @@ import (
 
 const (
  authKey = "eyJ0eXAiOiJKV1QiLCJ2MCIsImRhdGEiOnsidXNlcl9pZCI6MjgsInVzZXJuYW1lIjoic3MtdGVzdhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTQ4MjzdXBlcnVzZXIiOmZhbHNlfc2MDYsIm5iZiI6MTU1OTc4NzU4NiwiaWF0IjoxNTU5Nzg3NTk2LCJpc3MiOiJhdXRoOiBzcyIsInN1YiI6Im15IHRva2VuIiwiaWQiOiIxNTYxODcxODACIsIm5pY2tuYWJpc19X0.gMGMRKqtd_CM6rIzE8mxuwR8c8dz_hyH21FETOO4XbE"
- confURL = "https://codo.domain.com/api/kerrigan/v1/conf/publish/config/"
+ confURL = "https://cortisdevops.domain.com/api/kerrigan/v1/conf/publish/config/"
 )
 
 var (
@@ -1251,7 +1251,7 @@ func main() {
 
 **创建普通用户示例**
 
-**新建用户**  
+**新建用户**
 
 同上，填写信息即可，详细权限管理全部在角色管理配置
 
@@ -1286,19 +1286,19 @@ func main() {
 
 **获取长期Token**
 
->本系统使用token进行身份验证，当用户需要API进行访问的时候就需要获取token，并把token放入cookie里或者 访问的url参数里 
+>本系统使用token进行身份验证，当用户需要API进行访问的时候就需要获取token，并把token放入cookie里或者 访问的url参数里
 
-- 从用户管理 > 菜单组件里面找到 get_token_btn 这个代表获取token的按钮 要存在并且启用 
-- 从用户管理 >角色管理里面找到你要赋值的角色，点击组件把get_token_btn 添加进去 
+- 从用户管理 > 菜单组件里面找到 get_token_btn 这个代表获取token的按钮 要存在并且启用
+- 从用户管理 >角色管理里面找到你要赋值的角色，点击组件把get_token_btn 添加进去
 
-![](https://raw.githubusercontent.com/opendevops-cn/codo-admin/master/doc/images/tianjiazujian.png)
+![](https://raw.githubusercontent.com/cortisdevops-cn/cortisdevops-admin/master/doc/images/tianjiazujian.png)
 
 - 从用户管理 > 用户列表 会看到这个长期token的按钮，如果你是超级管理员 你就可以选中用户点击，然后系统会通过邮件把这个用户的token 发送至当前用户以及被选中用户的邮箱，token 有效期为三年。强烈建议如果使用token进行操作的时候 使用单独用户，防止人员变动造成token不可用，要进行精确权限控制，做好备注，且不要给此用户菜单以及组件权限。
 
-![](https://raw.githubusercontent.com/opendevops-cn/codo-admin/master/doc/images/get_token.png)
+![](https://raw.githubusercontent.com/cortisdevops-cn/cortisdevops-admin/master/doc/images/get_token.png)
 
-- 使用token 向 CODO 服务 API 提交安全的 REST 或 HTTP 查询协议请求。为了您的安全，请不要与任何人分享您的密钥。作为最佳做法，我们建议经常更换密钥 
-- 简单python示例，当然你之前一定会检查这个token是否对这个接口有权限，对吧！ 
+- 使用token 向 cortisdevops 服务 API 提交安全的 REST 或 HTTP 查询协议请求。为了您的安全，请不要与任何人分享您的密钥。作为最佳做法，我们建议经常更换密钥
+- 简单python示例，当然你之前一定会检查这个token是否对这个接口有权限，对吧！
 
 ```python
 import requests
@@ -1345,7 +1345,7 @@ except Exception as e:
 
 > 这块主要配置邮箱，配置了此邮箱信息后，后续平台内所涉及到邮件提醒都会使用此邮箱配置。
 
-不同运营商配置可参考`FAQ`中[邮箱设置问题](https://docs.opendevops.cn/zh/guide/more/faq/)
+不同运营商配置可参考`FAQ`中[邮箱设置问题](https://docs.cortisdevops.cn/zh/guide/more/faq/)
 
 
 - SMTP主题： 邮件标题
@@ -1383,7 +1383,7 @@ except Exception as e:
 
 **邮箱登陆**
 > 这块主要是支持第三方邮箱登陆，当你想要使用邮箱登陆此平台时，你可以在此进行配置
-比如我们企业邮箱是腾讯的,域名就是`opendevops.cn`，SMTP就是腾讯的`stmp.exmail.qq.com`,这样配置完成后我就可以使用我`yanghongfei@opendevops.cn`邮箱+密码登陆此平台了。
+比如我们企业邮箱是腾讯的,域名就是`cortisdevops.cn`，SMTP就是腾讯的`stmp.exmail.qq.com`,这样配置完成后我就可以使用我`yanghongfei@cortisdevops.cn`邮箱+密码登陆此平台了。
 
 
 - 邮箱SMTP： 这里输入你邮箱服务商的SMTP地址

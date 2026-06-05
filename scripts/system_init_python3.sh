@@ -1,6 +1,6 @@
 #! /bin/bash
 # install python3.6
-# By OpenDevOps  
+# By cortisdevops
 
 echo -e "\033[32m [INFO]: Start install python3 \033[0m"
 yum groupinstall Development tools -y

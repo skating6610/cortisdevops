@@ -1,18 +1,18 @@
 # 架构介绍
 
 **系统组件**
-codo 主要由以下组件组成
+cortisdevops 主要由以下组件组成
 
-- 前端代码：[codo](https://github.com/opendevops-cn/codo)
-- 管理后端：[codo-admin](https://github.com/opendevops-cn/codo-admin)
-- 配置管理平台：[codo-cmdb](https://github.com/opendevops-cn/codo-cmdb)
-- 任务调度：[codo-flow](https://github.com/opendevops-cn/codo-flow)
-- 配置中心：[codo-kerrigan](https://github.com/opendevops-cn/kerrigan)
-- 通知中心：[codo-notice](https://github.com/opendevops-cn/codo-notice)
-- 灵云-kubernetes管理 ：[codo-cnmp](https://github.com/opendevops-cn/codo-cnmp)
-- 管控中心 ：[codo-agent-server](https://github.com/opendevops-cn/codo-agent-server)
-- 前端基座 ：[codo-home-index](https://github.com/opendevops-cn/codo-home-index)
-- 天门网关 ：[codo-gateway](https://github.com/opendevops-cn/codo-gateway)
+- 前端代码：[cortisdevops](https://github.com/cortisdevops-cn/cortisdevops)
+- 管理后端：[cortisdevops-admin](https://github.com/cortisdevops-cn/cortisdevops-admin)
+- 配置管理平台：[cortisdevops-cmdb](https://github.com/cortisdevops-cn/cortisdevops-cmdb)
+- 任务调度：[cortisdevops-flow](https://github.com/cortisdevops-cn/cortisdevops-flow)
+- 配置中心：[cortisdevops-kerrigan](https://github.com/cortisdevops-cn/kerrigan)
+- 通知中心：[cortisdevops-notice](https://github.com/cortisdevops-cn/cortisdevops-notice)
+- 灵云-kubernetes管理 ：[cortisdevops-cnmp](https://github.com/cortisdevops-cn/cortisdevops-cnmp)
+- 管控中心 ：[cortisdevops-agent-server](https://github.com/cortisdevops-cn/cortisdevops-agent-server)
+- 前端基座 ：[cortisdevops-home-index](https://github.com/cortisdevops-cn/cortisdevops-home-index)
+- 天门网关 ：[cortisdevops-gateway](https://github.com/cortisdevops-cn/cortisdevops-gateway)
 
 **系统架构**
 ![image-20250520215813383](../images/image-20250520215813383.png)

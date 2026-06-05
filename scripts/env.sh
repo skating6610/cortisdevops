@@ -15,32 +15,32 @@ export MQ_PASSWORD="5Q2ajBHRT2lFJjnvaU0g"
 
 ##这部分是模块化部署，微服务，每个服务都有一个单独的域名
 ### 管理后端地址
-export mg_domain="mg.opendevops.cn"
+export mg_domain="mg.cortisdevops.cn"
 
 ### 定时任务地址,目前只启动一个进程，ip
 export cron_domain="172.16.1.201"
 
 ### 任务系统地址
-export task_domain="task.opendevops.cn"
+export task_domain="task.cortisdevops.cn"
 
 ### CMDB系统地址
-export cmdb_domain="cmdb.opendevops.cn"
+export cmdb_domain="cmdb.cortisdevops.cn"
 
 ### 运维工具地址
-export tools_domain="tools.opendevops.cn"
+export tools_domain="tools.cortisdevops.cn"
 
 
 ### 配置中心域名
-export kerrigan_domain="kerrigan.opendevops.cn"
+export kerrigan_domain="kerrigan.cortisdevops.cn"
 
 ### 前端地址,也就是你的访问地址
-export front_domain="demo.opendevops.cn"
+export front_domain="demo.cortisdevops.cn"
 
 ### api网关地址
-export api_gw_url="gw.opendevops.cn"
+export api_gw_url="gw.cortisdevops.cn"
 
 
-#codo-admin用到的cookie和token，可留默认
+#cortisdevops-admin用到的cookie和token，可留默认
 export cookie_secret="nJ2oZis0V/xlArY2rzpIE6ioC9/KlqR2fd59sD=UXZJ=3OeROB"
 export token_secret="1txIq2QUkeFsZizt3vEpVzUQNFS2@DpEQwbbw8k0YJt0biFScH"
 

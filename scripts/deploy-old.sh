@@ -2,7 +2,7 @@
 # @Time    : 01/14/2019 4:00 PM
 # @Author  : Fred Yang
 # @File    : deploy.py
-# @Role    : 脚本安装CODO
+# @Role    : 脚本安装cortisdevops
 
 echo -ne "\\033[0;33m"
 cat<<EOT
@@ -127,20 +127,20 @@ fi
 
 function init_mysql(){
     #初始化数据库
-    cd /opt/codo/opendevops/
+    cd /opt/cortisdevops/cortisdevops/
     source ./env.sh
     sleep 20s
 
      #后端数据库名称
-    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database codo_admin default character set utf8mb4 collate utf8mb4_unicode_ci;"
-    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database codo_cron default character set utf8mb4 collate utf8mb4_unicode_ci;"
-    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database codo_cmdb default character set utf8mb4 collate utf8mb4_unicode_ci;"
-    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database codo_task default character set utf8mb4 collate utf8mb4_unicode_ci;"
+    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database cortisdevops_admin default character set utf8mb4 collate utf8mb4_unicode_ci;"
+    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database cortisdevops_cron default character set utf8mb4 collate utf8mb4_unicode_ci;"
+    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database cortisdevops_cmdb default character set utf8mb4 collate utf8mb4_unicode_ci;"
+    mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database cortisdevops_task default character set utf8mb4 collate utf8mb4_unicode_ci;"
     #mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} < data.sql
-    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} codo_admin < sql/codo_admin.sql #后端
-    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} codo_cron < sql/codo_cron.sql   #定时任务
-    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} codo_cmdb < sql/codo_cmdb.sql   #cmdb
-    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} codo_task < sql/codo_task.sql   #任务系统
+    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} cortisdevops_admin < sql/cortisdevops_admin.sql #后端
+    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} cortisdevops_cron < sql/cortisdevops_cron.sql   #定时任务
+    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} cortisdevops_cmdb < sql/cortisdevops_cmdb.sql   #cmdb
+    mysql -h127.0.0.1 -uroot -p${MYSQL_PASSWORD} cortisdevops_task < sql/cortisdevops_task.sql   #任务系统
     if [ $? == 0 ];then
         echo -e "\033[32m [INFO]: init_mysql success. \033[0m"
     else
@@ -188,9 +188,9 @@ function redis3(){
 # 安装RabbitMQ
 function rabbitmq(){
     echo -e "\033[32m [INFO]: Start install rabbitmq \033[0m"
-    # echo $LOCALHOST_IP opendevops >> /etc/hosts
-    # echo opendevops > /etc/hostname
-    # export HOSTNAME=opendevops
+    # echo $LOCALHOST_IP cortisdevops >> /etc/hosts
+    # echo cortisdevops > /etc/hostname
+    # export HOSTNAME=cortisdevops
     yum install  -y rabbitmq-server
     rabbitmq-plugins enable rabbitmq_management
     systemctl start rabbitmq-server
@@ -281,31 +281,31 @@ function node_install(){
 }
 
 #项目前端
-function codo(){
-echo -e "\033[32m [INFO]: codo(项目前端) Start install. \033[0m"
-codo_version='https://github.com/opendevops-cn/codo/releases/download/codo-beta-0.2.0/codo-beta-0.2.0.tar.gz'
+function cortisdevops(){
+echo -e "\033[32m [INFO]: cortisdevops(项目前端) Start install. \033[0m"
+cortisdevops_version='https://github.com/cortisdevops-cn/cortisdevops/releases/download/cortisdevops-beta-0.2.0/cortisdevops-beta-0.2.0.tar.gz'
 if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
 [ ! -d /var/www ] && mkdir -p /var/www
-cd /var/www && wget $codo_version
-tar zxf codo-beta-0.2.0.tar.gz
+cd /var/www && wget $cortisdevops_version
+tar zxf cortisdevops-beta-0.2.0.tar.gz
 if [ $? == 0 ];then
-    echo -e "\033[32m [INFO]: codo(项目前端) install success. \033[0m"
+    echo -e "\033[32m [INFO]: cortisdevops(项目前端) install success. \033[0m"
 else
-    echo -e "\033[31m [ERROR]: codo(项目前端) install faild \033[0m"
+    echo -e "\033[31m [ERROR]: cortisdevops(项目前端) install faild \033[0m"
     exit -8
 fi
 }
 
 #项目后端
-function codo_admin(){
-echo -e "\033[32m [INFO]: codo-admin(项目后端) Start install. \033[0m"
+function cortisdevops_admin(){
+echo -e "\033[32m [INFO]: cortisdevops-admin(项目后端) Start install. \033[0m"
 if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
 if ! which git &>/dev/null; then yum install -y git >/dev/null 2>&1;fi
-[ ! -d /opt/codo/ ] && mkdir -p /opt/codo
-cd /opt/codo && git clone https://github.com/opendevops-cn/codo-admin.git
-cd codo-admin
+[ ! -d /opt/cortisdevops/ ] && mkdir -p /opt/cortisdevops
+cd /opt/cortisdevops && git clone https://github.com/cortisdevops-cn/cortisdevops-admin.git
+cd cortisdevops-admin
 #初始化数据
-DEFAULT_DB_DBNAME='codo_admin'   #项目后端数据库
+DEFAULT_DB_DBNAME='cortisdevops_admin'   #项目后端数据库
  #后端数据库名称
 mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database ${DEFAULT_DB_DBNAME} default character set utf8mb4 collate utf8mb4_unicode_ci;"
 # mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} < doc/data.sql
@@ -343,9 +343,9 @@ sleep 3s
 mg_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://$mg_domain:8010/are_you_ok/`
 
 if [ $mg_status == 200 ];then
-    echo -e "\033[32m [INFO]: codo(项目后端) install success. \033[0m"
+    echo -e "\033[32m [INFO]: cortisdevops(项目后端) install success. \033[0m"
 else
-    echo -e "\033[31m [ERROR]: codo(项目后端) install faild \033[0m"
+    echo -e "\033[31m [ERROR]: cortisdevops(项目后端) install faild \033[0m"
     exit -9
 fi
 }
@@ -353,16 +353,16 @@ fi
 
 
 #任务系统
-function codo_task(){
-echo -e "\033[32m [INFO]: codo-task(任务系统) Start install. \033[0m"
+function cortisdevops_task(){
+echo -e "\033[32m [INFO]: cortisdevops-task(任务系统) Start install. \033[0m"
 if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
 if ! which git &>/dev/null; then yum install -y git >/dev/null 2>&1;fi
-[ ! -d /opt/codo/ ] && mkdir -p /opt/codo
-cd /opt/codo && git clone https://github.com/opendevops-cn/codo-task.git
-cd codo-task
+[ ! -d /opt/cortisdevops/ ] && mkdir -p /opt/cortisdevops
+cd /opt/cortisdevops && git clone https://github.com/cortisdevops-cn/cortisdevops-task.git
+cd cortisdevops-task
 
 #修改配置
-TASK_DB_DBNAME='codo_task'
+TASK_DB_DBNAME='cortisdevops_task'
  #后端数据库名称
 mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database ${TASK_DB_DBNAME} default character set utf8mb4 collate utf8mb4_unicode_ci;"
 
@@ -408,9 +408,9 @@ sleep 10s
 task_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://$task_domain:8020/are_you_ok/`
 
 if [ $task_status == 200 ];then
-    echo -e "\033[32m [INFO]: codo(任务系统) install success. \033[0m"
+    echo -e "\033[32m [INFO]: cortisdevops(任务系统) install success. \033[0m"
 else
-    echo -e "\033[31m [ERROR]: codo(任务系统) install faild \033[0m"
+    echo -e "\033[31m [ERROR]: cortisdevops(任务系统) install faild \033[0m"
     exit -9
 fi
 
@@ -419,16 +419,16 @@ fi
 
 
 #定时任务
-function codo_cron(){
-echo -e "\033[32m [INFO]: codo_cron(定时任务) Start install. \033[0m"
+function cortisdevops_cron(){
+echo -e "\033[32m [INFO]: cortisdevops_cron(定时任务) Start install. \033[0m"
 if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
 if ! which git &>/dev/null; then yum install -y git >/dev/null 2>&1;fi
-[ ! -d /opt/codo/ ] && mkdir -p /opt/codo
-cd /opt/codo && git clone https://github.com/opendevops-cn/codo-cron.git
-cd codo-cron
+[ ! -d /opt/cortisdevops/ ] && mkdir -p /opt/cortisdevops
+cd /opt/cortisdevops && git clone https://github.com/cortisdevops-cn/cortisdevops-cron.git
+cd cortisdevops-cron
 
 #修改配置
-CRON_DB_DBNAME='codo_cron'
+CRON_DB_DBNAME='cortisdevops_cron'
  #后端数据库名称
 mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database ${CRON_DB_DBNAME} default character set utf8mb4 collate utf8mb4_unicode_ci;"
 
@@ -469,9 +469,9 @@ sleep 10s
 cron_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://$LOCALHOST_IP:9900/are_you_ok/`
 
 if [ $task_status == 200 ];then
-    echo -e "\033[32m [INFO]: codo(定时任务) install success. \033[0m"
+    echo -e "\033[32m [INFO]: cortisdevops(定时任务) install success. \033[0m"
 else
-    echo -e "\033[31m [ERROR]: codo(定时任务) install faild \033[0m"
+    echo -e "\033[31m [ERROR]: cortisdevops(定时任务) install faild \033[0m"
     exit -9
 fi
 
@@ -479,16 +479,16 @@ fi
 
 
 #CMDB
-function codo_cmdb(){
-echo -e "\033[32m [INFO]: codo_cmdb(资产管理) Start install. \033[0m"
+function cortisdevops_cmdb(){
+echo -e "\033[32m [INFO]: cortisdevops_cmdb(资产管理) Start install. \033[0m"
 if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
 if ! which git &>/dev/null; then yum install -y git >/dev/null 2>&1;fi
-[ ! -d /opt/codo/ ] && mkdir -p /opt/codo
-cd /opt/codo && git clone https://github.com/opendevops-cn/codo-cmdb.git
-cd codo-cmdb
+[ ! -d /opt/cortisdevops/ ] && mkdir -p /opt/cortisdevops
+cd /opt/cortisdevops && git clone https://github.com/cortisdevops-cn/cortisdevops-cmdb.git
+cd cortisdevops-cmdb
 
 #修改配置
-CMDB_DB_DBNAME='codo_cmdb'
+CMDB_DB_DBNAME='cortisdevops_cmdb'
  #后端数据库名称
 mysql -h 127.0.0.1 -u root -p${MYSQL_PASSWORD} -e "create database ${CMDB_DB_DBNAME} default character set utf8mb4 collate utf8mb4_unicode_ci;"
 
@@ -529,9 +529,9 @@ docker-compose up -d
 sleep 3s
 cmdb_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://${cmdb_domain}:8002/v1/cmdb/`
 if [ $cmdb_status == 200 ];then
-    echo -e "\033[32m [INFO]: codo(CMDB) install success. \033[0m"
+    echo -e "\033[32m [INFO]: cortisdevops(CMDB) install success. \033[0m"
 else
-    echo -e "\033[31m [ERROR]: codo(CMDB) install faild \033[0m"
+    echo -e "\033[31m [ERROR]: cortisdevops(CMDB) install faild \033[0m"
     exit -10
 fi
 
@@ -547,8 +547,8 @@ yum install openresty -y
 yum install openresty-resty -y
 if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
 if ! which git &>/dev/null; then yum install -y git >/dev/null 2>&1;fi
-[ ! -d /opt/codo/ ] && mkdir -p /opt/codo
-cd /opt/codo/ && git clone https://github.com/ss1917/api-gateway.git
+[ ! -d /opt/cortisdevops/ ] && mkdir -p /opt/cortisdevops
+cd /opt/cortisdevops/ && git clone https://github.com/ss1917/api-gateway.git
 \cp -arp api-gateway/* /usr/local/openresty/nginx/
 
 #修改配置
@@ -617,13 +617,13 @@ sed -i  "s#server_name .*#server_name ${api_gw_url};#g" /usr/local/openresty/ngi
 cat >/usr/local/openresty/nginx/conf/conf.d/demo.conf<<\EOF
 server {
         listen       80;
-        server_name demo.opendevops.cn;
+        server_name demo.cortisdevops.cn;
         access_log /var/log/nginx/f_access.log;
         error_log  /var/log/nginx/f_error.log;
-        root /var/www/codo;
+        root /var/www/cortisdevops;
 
         location / {
-                    root /var/www/codo;
+                    root /var/www/cortisdevops;
                     index index.html index.htm;
                     try_files $uri $uri/ /index.html;
                     }
@@ -636,7 +636,7 @@ server {
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
                 add_header 'Access-Control-Allow-Origin' '*';
-                proxy_pass http://gw.opendevops.cn;
+                proxy_pass http://gw.cortisdevops.cn;
         }
 
         location ~ /(.svn|.git|admin|manage|.sh|.bash)$ {
@@ -741,11 +741,11 @@ export -f redis3
 export -f rabbitmq
 export -f dnsmasq
 export -f node_install
-export -f codo
-export -f codo_admin
-export -f codo_task
-export -f codo_cron
-export -f codo_cmdb
+export -f cortisdevops
+export -f cortisdevops_admin
+export -f cortisdevops_task
+export -f cortisdevops_cron
+export -f cortisdevops_cmdb
 export -f api_gateway
 
 
@@ -759,20 +759,20 @@ init_mysql
 [ -f /usr/sbin/rabbitmq-server ] && echo -e "\033[33m [Warning]: Rabbitmq already exists,Skip installation \033[0m"  || rabbitmq
 [ -f /etc/dnsmasqhosts ] && echo -e "\033[33m [Warning]: Dnsmasq already exists,Skip installation \033[0m"  || dnsmasq
 #[ -f /usr/local/bin/node ] && echo -e "\033[33m [Warning]: None already exists,Skip installation \033[0m"  || node_install
-[ -d /var/www/codo/ ] && echo -e "\033[33m [Warning]: 项目前端:/var/www/codo/ already exists,Skip installation \033[0m"  || codo
+[ -d /var/www/cortisdevops/ ] && echo -e "\033[33m [Warning]: 项目前端:/var/www/cortisdevops/ already exists,Skip installation \033[0m"  || cortisdevops
 mg_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://$mg_domain:8010/are_you_ok/`
-[ $mg_status = 200 ] && echo -e "\033[33m [Warning]: 项目后端 already exists,Skip installation \033[0m" || codo_admin
+[ $mg_status = 200 ] && echo -e "\033[33m [Warning]: 项目后端 already exists,Skip installation \033[0m" || cortisdevops_admin
 task_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://$task_domain:8020/are_you_ok/`
-[ $task_status = 200 ] && echo -e "\033[33m [Warning]: 任务系统 already exists,Skip installation \033[0m" || codo_task
+[ $task_status = 200 ] && echo -e "\033[33m [Warning]: 任务系统 already exists,Skip installation \033[0m" || cortisdevops_task
 cron_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://${cron_domain}:9900/are_you_ok/`
-[ $cron_status = 200 ] && echo -e "\033[33m [Warning]: 定时任务 already exists,Skip installation \033[0m" || codo_cron
+[ $cron_status = 200 ] && echo -e "\033[33m [Warning]: 定时任务 already exists,Skip installation \033[0m" || cortisdevops_cron
 cmdb_status=`curl -I -X GET -m  10 -o /dev/null -s -w %{http_code}  http://${cmdb_domain}:8002/v1/cmdb/`
-[ $cmdb_status = 200 ] && echo -e "\033[33m [Warning]: CMDB already exists,Skip installation \033[0m" || codo_cmdb
+[ $cmdb_status = 200 ] && echo -e "\033[33m [Warning]: CMDB already exists,Skip installation \033[0m" || cortisdevops_cmdb
 #openresty也是使用的80端口
 #check_port=`netstat -tlpn | greip "\b80\b"`
 #[ $check_port ==0 ] &&  echo -e "\033[33m [Warning]:  API网关Server port:80 is already occupied,Skip installation，请确认再次安装 \033[0m"  ||
 #安装API网关
 api_gateway
 
-echo -e "\033[32m [INFO]: 初始用户：admin  初始密码：admin@opendevops\033[0m"
+echo -e "\033[32m [INFO]: 初始用户：admin  初始密码：admin@cortisdevops\033[0m"
 echo -e "\033[32m [INFO]: 日志目录：/var/log/supervisor/, 详细可查看日志log是否有报错。 \033[0m"

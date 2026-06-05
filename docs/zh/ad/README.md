@@ -8,7 +8,7 @@
 - 作者目前在一家游戏公司社畜，感兴趣的同学可以找我内推
 - 对，就是崩坏+原神那家，（什么，没听过？ 不了解？ 可以简单了解一下。
 
-  - [崩坏3 Bilibili](https://space.bilibili.com/27534330) 
+  - [崩坏3 Bilibili](https://space.bilibili.com/27534330)
   - [原神 Bilibili](https://space.bilibili.com/401742377)
   - [miHoYo其他游戏](https://www.mihoyo.com/#/)
 

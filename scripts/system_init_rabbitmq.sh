@@ -1,11 +1,11 @@
 #! /bin/bash
 # install rabbitmq
-# By OpenDevOps  
+# By cortisdevops
 
 echo -e "\033[32m [INFO]: Start install rabbitmq \033[0m"
-# echo $LOCALHOST_IP opendevops >> /etc/hosts
-# echo opendevops > /etc/hostname
-# export HOSTNAME=opendevops
+# echo $LOCALHOST_IP cortisdevops >> /etc/hosts
+# echo cortisdevops > /etc/hostname
+# export HOSTNAME=cortisdevops
 yum install  -y rabbitmq-server
 rabbitmq-plugins enable rabbitmq_management
 systemctl start rabbitmq-server

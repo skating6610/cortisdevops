@@ -1,4 +1,4 @@
-# 手把手教你玩转 一站式运维平台(CODO) - 7.使用通知中心完成高效率告警
+# 手把手教你玩转 一站式运维平台(cortisdevops) - 7.使用通知中心完成高效率告警
 ## 项目结构
 
 ![image-20241222150347223](../images/image-20241222150347223.png)
@@ -128,14 +128,14 @@
 
 ```golang
 FieldsMessage     = "message"      // 通用消息字段 (从 jsonBody 取值)
-FieldsManager     = "codo_manager" // 业务负责人 (从 httpQuery + jsonBody 取值)
-FieldsNoticer     = "codo_noticer" // 内置通知人 (从 httpQuery + jsonBody 取值)
+FieldsManager     = "cortisdevops_manager" // 业务负责人 (从 httpQuery + jsonBody 取值)
+FieldsNoticer     = "cortisdevops_noticer" // 内置通知人 (从 httpQuery + jsonBody 取值)
 FieldsSeverity    = "severity"     // 告警等级 [fatal | error | warn | info] (从 httpQuery + jsonBody 取值)
 FieldsTitle       = "title"        // 告警标题 (从 httpQuery + jsonBody 取值)
-FieldsNativeTitle = "codo_title"   // 原生标题 不做其他处理 (从 httpQuery + jsonBody 取值)
+FieldsNativeTitle = "cortisdevops_title"   // 原生标题 不做其他处理 (从 httpQuery + jsonBody 取值)
 FieldsStatus      = "status"       // 告警状态 [resolved | firing | resolving | inactive] (从 httpQuery + jsonBody 取值)
 FieldsAppCn       = "cmdb_bizcn"   // 业务中文描述 (从 httpQuery + jsonBody 取值)
-FieldsCallbackArgs = "codo_callback_args" // 回调参数, 只能是个字符串 (从 httpQuery + jsonBody 取值)
+FieldsCallbackArgs = "cortisdevops_callback_args" // 回调参数, 只能是个字符串 (从 httpQuery + jsonBody 取值)
 ```
 
 ![image-20241222155831594](../images/image-20241222155831594.png)

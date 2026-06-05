@@ -1,38 +1,42 @@
 <p align="center">
-    <a href="https://www.opendevops.cn/">
-        <img width="200" src="https://www.opendevops.cn/images/head_logo.png">
+    <a href="https://www.cortisdevops.cn/">
+        <img width="200" src="https://www.cortisdevops.cn/images/head_logo.png">
     </a>
 </p>
 
-[![Python3](https://img.shields.io/badge/Python-3.6-green.svg?style=plastic)](https://www.python.org/)
-[![Tornado](https://img.shields.io/badge/Tornado-5.0-brightgreen.svg?style=plastic)](https://www.tornadoweb.org)
+[![Python3](https://img.shields.io/badge/Python-3.9-green.svg?style=plastic)](https://www.python.org/)
+[![Golang](https://img.shields.io/badge/golang-1.23-brightgreen.svg?style=plastic)](https://golang.google.cn/)
+[![Tornado](https://img.shields.io/badge/Tornado-6.0-brightgreen.svg?style=plastic)](https://www.tornadoweb.org)
 [![Vue.js](https://img.shields.io/badge/Vuejs-2.5-brightgreen.svg?style=plastic)](https://cn.vuejs.org)
-[![iview](https://img.shields.io/badge/iview-3.2.0-blue.svg?style=plastic)](https://www.iviewui.com/)
+[![Ant-Design.js](https://img.shields.io/badge/Ant--Design-4.8-blue.svg?style=plastic)](https://ant-design.antgroup.com/)
+[![Iview](https://img.shields.io/badge/iview-3.2.0-blue.svg?style=plastic)](https://www.iviewui.com/)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 [![README_CN](https://img.shields.io/badge/README-Chinese.md-red.svg?style=plastic)](./README.md)
 
-
-
 ----
 
-CODO is a cloud management platform that provides users with multi-hybrid cloud, automated operation and maintenance,
-and complete open source.
+### Project Introduction
 
-Based on Vue iview development, the CODO front-end provides users with a friendly interface and enhances the user
-experience.
+cortisdevops is an open-source, enterprise-oriented, global one-stop operations platform. It supports multi-cloud and hybrid-cloud environments, automated operations, and unified management across regions and cloud providers.
 
-The CODO backend is based on Python Tornado and has the advantages of being lightweight, concise, and asynchronous.
+### Technical Architecture and Advantages
 
-CODO open source cloudy management platform will provide users with multi-function: ITSM, RBAC-based permission system,
-Web Terminnal login log audit, video playback, powerful job scheduling system, CMDB, monitoring and alarm system, DNS
-management, configuration center, etc.
+- **Frontend**: Built with Vue + iView and React + Ant Design to provide intuitive and user-friendly operation interfaces.
+- **Backend**: Built with Python Tornado and Golang Gin for lightweight, concise, asynchronous, and high-concurrency services.
+- **Microservice Gateway**: Built with OpenResty + Lua to provide a unified API gateway and service governance capabilities.
+- **Micro-frontend Base**: Built on the qiankun framework to centrally manage frontend applications with modular management and dynamic loading.
 
-We have been researching and developing many functional modules. If you are interested in this project, you can join our
-community exchange group.
+### Highlights
 
-I also hope that you can give us a project![](https://img.shields.io/github/stars/opendevops-cn/opendevops.svg), cheer
-for contributors!
+- **Efficient unified management**: Supports cross-region and cross-cloud environments to simplify multi-cloud operations.
+- **Observability and intelligence**: Covers real-time monitoring, alerting, and performance analysis.
+- **Powerful automation**: Provides one-stop automation tools to improve operations efficiency and reduce operational complexity.
+- **Cloud-native support**: Optimizes containerized and microservice management for enterprise digital transformation.
+
+We are continuously researching and developing more modules. If you are interested in this project, you are welcome to join our community.
+
+We also hope you can give the project a star![](https://img.shields.io/github/stars/cortisdevops-cn/cortisdevops.svg) Cheer for the contributors!
 
 ----
 
@@ -50,30 +54,32 @@ for contributors!
 
 ### Demo
 
-We provide a demo of the user experience and click on the demo to demonstrate it quickly.
+We provide a demo for users to quickly experience the platform.
 
-<a href="https://demo.opendevops.cn/user/login" target="api_explorer">
+<a href="https://demo.cortisdevops.cn/user/login" target="api_explorer">
   <img src="https://img.alicdn.com/tfs/TB12GX6zW6qK1RjSZFmXXX0PFXa-744-122.png" width="180" />
 </a>
 
-`PS: Demo users only have view rights, and the user list is not yet open. The demo order log is temporarily cleared.`
+`PS: Demo permissions are being adjusted. Demo users currently have view-only permissions, the user list is not open, and demo order logs are temporarily cleared.`
 
-- 地址：http://demo.opendevops.cn/login
-- 用户：demo
-- 密码：2ZbFYNv9WibWcR7GB6kcEY
+- Address: https://demo.cortisdevops.cn/user/login
+- User: demo
+- Password: 2ZbFYNv9WibWcR7GB6kcEY
 
-![](image/codo_index.png)
+![](images/cortisdevops_index.png)
 
 ### How can I use it?
 
-- [Document](http://docs.opendevops.cn/)
-- [Quick Experience](https://demo.opendevops.cn/user/login)
-- [Deployment Document](https://docs.opendevops.cn/zh/guide/install/distribute/)
+> The current version supports one-click quick deployment with Docker Compose and Kubernetes Helm.
+
+- [Document](https://docs.cortisdevops.cn/)
+- [Quick Experience](https://demo.cortisdevops.cn/user/login)
+- [Deployment Document](https://github.com/cortisdevops-cn/cortisdevops-deploy-docs)
 - [Quick start tutorial](https://www.bilibili.com/video/BV1rp4y1v7fa/)
 
 ### Video Tutorial
 
-> The video will continue to be recorded in spare time. For more video, please refer to the Up main
+> Videos will continue to be recorded in spare time. For more videos, please refer to the Up owner's
 > space: https://space.bilibili.com/388245257/
 
 - [Deployment and Installation Tutorial](https://www.bilibili.com/video/BV1BL4y1a7TU/)
@@ -82,23 +88,23 @@ We provide a demo of the user experience and click on the demo to demonstrate it
 
 ### Module link
 
-> CODO We use modular and micro-services for the project. The following are the address of each module. We also welcome
-> the industry's interested parties to contribute.
+> cortisdevops is modularized and microservice-oriented. The following are the addresses of each module. We also welcome interested contributors from the industry.
 
-- [codo](https://github.com/opendevops-cn/codo)
-- [codo-admin](https://github.com/opendevops-cn/codo-admin)
-- [codo-cron](https://github.com/opendevops-cn/codo-cron)
-- [codo-task](https://github.com/opendevops-cn/codo-task)
-- [codo-cmdb](https://github.com/opendevops-cn/codo-cmdb)
-- [codo-kerrigan](https://github.com/opendevops-cn/kerrigan)
-- [codo-tools](https://github.com/opendevops-cn/codo-tools)
-- [codo-dns](https://github.com/opendevops-cn/codo-dns)
+- Frontend code: [cortisdevops](https://github.com/cortisdevops-cn/cortisdevops)
+- Management backend: [cortisdevops-admin](https://github.com/cortisdevops-cn/cortisdevops-admin)
+- Configuration management platform: [cortisdevops-cmdb](https://github.com/cortisdevops-cn/cortisdevops-cmdb)
+- Task orchestration: [cortisdevops-flow](https://github.com/cortisdevops-cn/cortisdevops-flow)
+- Configuration center: [kerrigan](https://github.com/cortisdevops-cn/kerrigan)
+- Notice center: [cortisdevops-notice](https://github.com/cortisdevops-cn/cortisdevops-notice)
+- Kubernetes management: [cortisdevops-cnmp](https://github.com/cortisdevops-cn/cortisdevops-cnmp)
+- Agent control center: [cortisdevops-agent-server](https://github.com/cortisdevops-cn/cortisdevops-agent-server)
+- Frontend base: [cortisdevops-home-index](https://github.com/cortisdevops-cn/cortisdevops-home-index)
+- Gateway: [cortisdevops-gateway](https://github.com/cortisdevops-cn/cortisdevops-gateway)
 
 ### Thanks to contributors
 
-Thanks for the contributions contributed to CODO (CloudOpenDevOps);
-Thank you for your contribution, so that maintenance is no longer boring because of you, and the world is beautiful
-because of you. This ranking is no different. Thank you!
+Thanks for the contributions to cortisdevops (cortisdevops).
+Thank you for your effort. Your contributions make maintenance less boring and the world more beautiful. This ranking is in no particular order. Thank you!
 
 | Name                                          | Github Avatar                                                   | Name                                          | GitHub Avatar                                                    | Name                                              | Github Avatar                                                   |
 |-----------------------------------------------|-----------------------------------------------------------------|-----------------------------------------------|------------------------------------------------------------------|---------------------------------------------------|-----------------------------------------------------------------|
@@ -110,10 +116,10 @@ because of you. This ranking is no different. Thank you!
 
 ### QQ Group
 
-> Interested students can join our QQ exchange group, the code will continue to update, thank you for your support.
+> Interested students can join our QQ exchange group. The code will continue to be updated. Thank you for your support.
 
 - Join QQ
-  Group：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=69f5e118727c7ea925cc8d2f0eef0d729898cb8a24eae47e2b3ca3dd048de9d9"><img border="0" src="images/join_qq_group.png" alt="CoDo  CloudOpenDevOps" title="OpenDevOps用户交流群"></a>
+  Group：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=69f5e118727c7ea925cc8d2f0eef0d729898cb8a24eae47e2b3ca3dd048de9d9"><img border="0" src="images/join_qq_group.png" alt="cortisdevops  cortisdevops" title="cortisdevops用户交流群"></a>
 
 - Scan QR code plus group
 
@@ -123,27 +129,24 @@ because of you. This ranking is no different. Thank you!
 
 Everything is [GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 
-
 ---
 
-## 写在最后
-
-感谢以下同学为Demo环境进行赞助。
+## Thanks for Demo Sponsorship
 
 Thanks to the following students for sponsoring the Demo environment.
 
-| Name                                              | Github Avatar                                                | 贡献金额 |
-| ------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| [shenshuo](https://github.com/ss1917)             | ![](https://avatars3.githubusercontent.com/u/20316110?s=70&v=4) | ￥500    |
-| [laowang](https://github.com/cyancow)             | ![](https://avatars2.githubusercontent.com/u/56914892?s=70&v=4) | ￥300    |
-| [ops-coffee](https://github.com/ops-coffee)       | ![](https://avatars3.githubusercontent.com/u/42868360?s=70&v=4) | ￥300    |
-| [yanghongfei](https://github.com/yanghongfei)     | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥300    |
-| [panda-yo](https://github.com/panda-yo)           | ![](https://avatars3.githubusercontent.com/u/19947676?s=70&v=4) | ￥200    |
-| [yanshuanglong](https://github.com/yanshuanglong) | ![](https://avatars3.githubusercontent.com/u/53425315?s=70&v=4) | ￥200    |
-| [Victor](https://github.com/victor)               | ![](https://avatars3.githubusercontent.com/u/7311?s=70&v=4)  | ￥200    |
-| [DsinV](https://github.com/ywl913)                | ![](https://avatars3.githubusercontent.com/u/8074956?s=70&v=4) | ￥200    |
-| [lixiaozheng](https://github.com/si7eka)          | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥200    |
-| [pcghost](https://github.com/q48775533q/)         | ![](https://avatars3.githubusercontent.com/u/17016455?s=70&v=4) | ￥100    |
-| [ca7dEm0n](https://github.com/ca7dEm0n)           | ![](https://avatars3.githubusercontent.com/u/14136093?s=70&v=4) | ￥100    |
-| [jiangming](https://github.com/jiangming1)        | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥100    |
-| [金额共计](https://github.com/opendevops-cn)      | ![](https://avatars3.githubusercontent.com/u/44669566?s=70&v=4) | ￥2700   |
+| Name                                              | Github Avatar                                                | Contribution |
+| ------------------------------------------------- | ------------------------------------------------------------ | ------------ |
+| [shenshuo](https://github.com/ss1917)             | ![](https://avatars3.githubusercontent.com/u/20316110?s=70&v=4) | ￥500        |
+| [laowang](https://github.com/cyancow)             | ![](https://avatars2.githubusercontent.com/u/56914892?s=70&v=4) | ￥300        |
+| [ops-coffee](https://github.com/ops-coffee)       | ![](https://avatars3.githubusercontent.com/u/42868360?s=70&v=4) | ￥300        |
+| [yanghongfei](https://github.com/yanghongfei)     | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥300        |
+| [panda-yo](https://github.com/panda-yo)           | ![](https://avatars3.githubusercontent.com/u/19947676?s=70&v=4) | ￥200        |
+| [yanshuanglong](https://github.com/yanshuanglong) | ![](https://avatars3.githubusercontent.com/u/53425315?s=70&v=4) | ￥200        |
+| [Victor](https://github.com/victor)               | ![](https://avatars3.githubusercontent.com/u/7311?s=70&v=4)  | ￥200        |
+| [DsinV](https://github.com/ywl913)                | ![](https://avatars3.githubusercontent.com/u/8074956?s=70&v=4) | ￥200        |
+| [lixiaozheng](https://github.com/si7eka)          | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥200        |
+| [pcghost](https://github.com/q48775533q/)         | ![](https://avatars3.githubusercontent.com/u/17016455?s=70&v=4) | ￥100        |
+| [ca7dEm0n](https://github.com/ca7dEm0n)           | ![](https://avatars3.githubusercontent.com/u/14136093?s=70&v=4) | ￥100        |
+| [jiangming](https://github.com/jiangming1)        | ![](https://avatars3.githubusercontent.com/u/22789928?s=70&v=4) | ￥100        |
+| [Total](https://github.com/cortisdevops-cn)         | ![](https://avatars3.githubusercontent.com/u/44669566?s=70&v=4) | ￥2700       |
